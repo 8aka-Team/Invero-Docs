@@ -29,6 +29,7 @@ money get
 money has <action>
 money give <action>
 money take <action>
+money set <action>
 ```
 
 ## PlayerPoints
@@ -42,6 +43,7 @@ points get
 points has <action>
 points give <action>
 points take <action>
+points set <action>
 ```
 
 ## 跨服
