@@ -75,12 +75,12 @@ function ReleaseCard({ release }) {
       <div className={styles.releaseHead}>
         <div className={styles.releaseDetails}>
           <div className={styles.releaseName}>{release.name || release.tag_name}</div>
-          <div className={styles.releaseInfo}>
+        <div className={styles.releaseInfo}>
             <div className={styles.releaseDate}>
               <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" className={styles.releaseDateIcon}>
                 <path d="M6 5V1M14 5V1M5 9H15M19 7V19C19 20.1046 18.1046 21 17 21H3C1.89543 21 1 20.1046 1 19V7C1 5.89543 1.89543 5 3 5H17C18.1046 5 19 5.89543 19 7Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
-              {date}
+            {date}
             </div>
             <div 
               className={clsx(
@@ -112,7 +112,7 @@ function ReleaseCard({ release }) {
           {jarAssets.map(asset => (
             <FileCard key={asset.id} asset={asset} />
           ))}
-        </div>
+      </div>
       )}
       
       {jarAssets.length === 0 && (
@@ -124,13 +124,13 @@ function ReleaseCard({ release }) {
           </div>
           <div className={styles.noFilesText}>
             <Translate>该版本没有可用的下载文件</Translate>
-          </div>
-          <a 
+        </div>
+              <a 
             href={release.zipball_url} 
             className={styles.sourceCodeLink}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+                target="_blank"
+                rel="noopener noreferrer"
+              >
             <Translate>下载源代码</Translate>
             <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" className={styles.sourceCodeIcon}>
               <path d="M7 10L5 8M5 8L7 6M5 8H15M13 14L15 16M15 16L17 14M15 16V6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
@@ -321,9 +321,9 @@ function DevelopmentBuildCard() {
                         <a 
                           href={build.downloadUrl}
                           className={styles.buildViewLink}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
+              target="_blank"
+              rel="noopener noreferrer"
+            >
                           <Translate>查看详情</Translate>
                         </a>
                       </div>
@@ -366,9 +366,9 @@ function DevelopmentBuildCard() {
                                build.status === 'failure' ? '构建失败' : 
                                '进行中'}
                             </span>
-                          )}
-                        </div>
-                      </div>
+          )}
+        </div>
+      </div>
                     </div>
                     <div className={styles.buildActions}>
                       <a 
@@ -398,12 +398,12 @@ function DevelopmentBuildCard() {
               <a 
                 href="https://github.com/8aka-Team/Invero/actions"
                 className={styles.viewAllButton}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+          target="_blank"
+          rel="noopener noreferrer"
+        >
                 <Translate>查看所有构建</Translate>
                 <ArrowRightIcon className={styles.viewAllButtonIcon} />
-              </a>
+        </a>
             </div>
           </div>
         )}
@@ -492,17 +492,17 @@ function ErrorState({ error }) {
       </h3>
       <p className={styles.errorMessage}>{error}</p>
       <div className={styles.errorAction}>
-        <a 
-          href="https://github.com/8aka-Team/Invero/releases"
+      <a 
+        href="https://github.com/8aka-Team/Invero/releases"
           className={styles.actionButton}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Translate>前往 GitHub Releases 页面</Translate>
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <Translate>前往 GitHub Releases 页面</Translate>
           <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" className={styles.actionButtonIcon}>
             <path d="M5 10H15M15 10L10 5M15 10L10 15" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
-        </a>
+      </a>
       </div>
     </div>
   );
@@ -526,18 +526,18 @@ function EmptyState() {
         </Translate>
       </p>
       <div className={styles.emptyAction}>
-        <a 
-          href="https://github.com/8aka-Team/Invero"
+      <a 
+        href="https://github.com/8aka-Team/Invero"
           className={styles.actionButton}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Translate>访问 GitHub 仓库</Translate>
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <Translate>访问 GitHub 仓库</Translate>
           <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" className={styles.actionButtonIcon}>
             <path d="M5 10H15M15 10L10 5M15 10L10 15" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
-        </a>
-      </div>
+      </a>
+    </div>
     </div>
   );
 }
@@ -589,8 +589,8 @@ export default function DownloadPage() {
         message: '下载 Invero Minecraft GUI 插件的最新版本',
       })}>
       
-      <Banner />
-      
+        <Banner />
+        
       <div className={styles.downloadContainer}>
         <div className={styles.downloadContent}>
           <div className={styles.downloadHeader}>
