@@ -129,7 +129,12 @@ a {
   border-bottom: 1px solid rgba(226, 232, 240, 0.6);
   position: fixed;
   top: 0;
-  z-index: 100;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 200;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  will-change: transform;
 }
 
 [data-theme='dark'] .navbar {
@@ -283,7 +288,7 @@ html[data-theme='dark'] .header-github-link::before {
 
 /* ======== 主内容区域 ======== */
 .main-wrapper {
-  padding-top: 3.5rem; 
+  padding-top: 3.5rem; /* 与导航栏高度相同 */
 }
 
 .container {
@@ -776,7 +781,7 @@ pre:hover .code-copy-button {
 
 /* ======== 页脚样式 ======== */
 .footer {
-  padding: 3rem 4rem;
+  padding: 3rem 0;
   background-color: var(--ifm-background-surface-color);
   border-top: 1px solid var(--ifm-color-gray-200);
   font-size: 0.9rem;
@@ -830,11 +835,6 @@ pre:hover .code-copy-button {
   font-size: 0.85rem;
   text-align: center;
   color: var(--ifm-color-gray-500);
-}
-
-.footer .container {
-  padding: 0 4rem;
-  max-width: 100%;
 }
 
 /* ======== 响应式 ======== */
@@ -915,7 +915,210 @@ pre:hover .code-copy-button {
   }
   
   .main-wrapper {
-    padding-top: 3.5rem;
+    padding-top: 3.5rem; /* 与移动设备下导航栏高度保持一致 */
+  }
+}
+
+/* 按钮样式 */
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.6rem 1.2rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--ifm-font-color-base-inverse);
+  background-color: var(--ifm-color-primary);
+  border: 1px solid transparent;
+  border-radius: var(--ifm-global-radius);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  box-shadow: var(--ifm-global-shadow-lw);
+}
+
+.button:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--ifm-global-shadow-md);
+  filter: brightness(1.1);
+  text-decoration: none;
+}
+
+.button:active {
+  transform: translateY(0);
+  box-shadow: var(--ifm-global-shadow-lw);
+  filter: brightness(0.95);
+}
+
+.button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(var(--ifm-color-primary-rgb), 0.4);
+}
+
+.button--primary {
+  background-color: var(--ifm-color-primary);
+  color: var(--ifm-color-white);
+}
+
+.button--secondary {
+  background-color: var(--ifm-color-secondary);
+  color: var(--ifm-color-white);
+}
+
+.button--success {
+  background-color: var(--ifm-color-success);
+  color: var(--ifm-color-white);
+}
+
+.button--info {
+  background-color: var(--ifm-color-info);
+  color: var(--ifm-color-white);
+}
+
+.button--warning {
+  background-color: var(--ifm-color-warning);
+  color: var(--ifm-color-black);
+}
+
+.button--danger {
+  background-color: var(--ifm-color-danger);
+  color: var(--ifm-color-white);
+}
+
+.button--outline {
+  background-color: transparent;
+  border-color: var(--ifm-color-primary);
+  color: var(--ifm-color-primary);
+}
+
+.button--outline:hover {
+  background-color: var(--ifm-color-primary);
+  color: var(--ifm-color-white);
+}
+
+.button--lg {
+  padding: 0.75rem 1.5rem;
+  font-size: 1.1rem;
+}
+
+.button--sm {
+  padding: 0.4rem 0.8rem;
+  font-size: 0.85rem;
+}
+
+.button--link {
+  background-color: transparent;
+  color: var(--ifm-color-primary);
+  padding: 0;
+  border: none;
+  box-shadow: none;
+  font-weight: 500;
+}
+
+.button--link:hover {
+  background-color: transparent;
+  color: var(--ifm-color-primary-darker);
+  text-decoration: underline;
+  transform: none;
+  box-shadow: none;
+}
+
+/* 带图标的按钮 */
+.button--icon-before svg,
+.button--icon-before .icon {
+  margin-right: 0.5rem;
+}
+
+.button--icon-after svg,
+.button--icon-after .icon {
+  margin-left: 0.5rem;
+}
+
+/* 响应式布局优化 */
+@media (max-width: 996px) {
+  .container {
+    width: 100%;
+    max-width: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  .row {
+    margin-left: -0.5rem;
+    margin-right: -0.5rem;
+  }
+  
+  [class^="col-"] {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+  
+  .markdown h1 {
+    font-size: 2rem;
+  }
+  
+  .markdown h2 {
+    font-size: 1.6rem;
+  }
+  
+  .markdown h3 {
+    font-size: 1.3rem;
+  }
+  
+  .markdown h4 {
+    font-size: 1.15rem;
+  }
+  
+  .navbar__brand {
+    margin-right: 0.5rem;
+  }
+  
+  .menu__link {
+    padding: 0.6rem 0.75rem;
+  }
+  
+  .table-of-contents {
+    padding: 0.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .markdown {
+    font-size: 0.95rem;
+  }
+  
+  .markdown h1 {
+    font-size: 1.8rem;
+  }
+  
+  .markdown h2 {
+    font-size: 1.5rem;
+  }
+  
+  .markdown h3 {
+    font-size: 1.2rem;
+  }
+  
+  .markdown h4 {
+    font-size: 1.1rem;
+  }
+  
+  .card {
+    margin-bottom: 1.5rem;
+  }
+  
+  .footer {
+    padding: 2rem 1rem;
+  }
+  
+  .footer__links {
+    flex-direction: column;
+  }
+  
+  .footer__col {
+    width: 100%;
+    margin-bottom: 1.5rem;
   }
 }
 
@@ -956,10 +1159,6 @@ pre:hover .code-copy-button {
     margin-left: -0.75rem;
     margin-right: -0.75rem;
     border-radius: 0;
-  }
-  
-  .footer .container {
-    padding: 0 1.5rem;
   }
 }
 
