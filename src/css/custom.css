@@ -127,14 +127,9 @@ a {
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(226, 232, 240, 0.6);
-  position: fixed;
+  position: sticky;
   top: 0;
-  left: 0;
-  right: 0;
-  width: 100%;
-  z-index: 200;
-  transition: transform 0.3s ease, opacity 0.3s ease;
-  will-change: transform;
+  z-index: 100;
 }
 
 [data-theme='dark'] .navbar {
@@ -288,7 +283,7 @@ html[data-theme='dark'] .header-github-link::before {
 
 /* ======== 主内容区域 ======== */
 .main-wrapper {
-  padding-top: 3.5rem; /* 与导航栏高度相同 */
+  width: 100%;
 }
 
 .container {
@@ -839,58 +834,20 @@ pre:hover .code-copy-button {
 
 /* ======== 响应式 ======== */
 @media (max-width: 996px) {
-  .container {
-    width: 100%;
-    max-width: 100%;
-    padding-left: 1rem;
-    padding-right: 1rem;
+  .markdown {
+    --ifm-h1-font-size: 2rem;
+    --ifm-h2-font-size: 1.5rem;
+    --ifm-h3-font-size: 1.25rem;
   }
   
-  .row {
-    margin-left: -0.5rem;
-    margin-right: -0.5rem;
-  }
-  
-  [class^="col-"] {
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
-  }
-  
-  .markdown h1 {
-    font-size: 2rem;
-  }
-  
-  .markdown h2 {
-    font-size: 1.6rem;
-  }
-  
-  .markdown h3 {
-    font-size: 1.3rem;
-  }
-  
-  .markdown h4 {
-    font-size: 1.15rem;
-  }
-  
-  .navbar__brand {
-    margin-right: 0.5rem;
-  }
-  
-  .menu__link {
-    padding: 0.6rem 0.75rem;
-  }
-  
-  .table-of-contents {
-    padding: 0.5rem;
+  .footer .container {
+    padding: 0 3rem;
   }
 }
 
 @media (max-width: 768px) {
   .navbar {
     height: 3.5rem;
-    padding: 0 1rem;
-    position: fixed;
-    width: 100%;
   }
   
   .markdown h1 {
@@ -912,10 +869,6 @@ pre:hover .code-copy-button {
   .footer__links {
     flex-direction: column;
     gap: 1.5rem;
-  }
-  
-  .main-wrapper {
-    padding-top: 3.5rem; /* 与移动设备下导航栏高度保持一致 */
   }
 }
 
