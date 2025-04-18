@@ -81,6 +81,11 @@ const config = {
                         position: 'left'
                     },
                     {
+                        to: '/download/',
+                        label: '下载',
+                        position: 'left',
+                    },
+                    {
                         href: 'https://github.com/8aka-Team/Invero',
                         position: 'right',
                         className: 'header-github-link',

@@ -21,3 +21,257 @@
   align-items: center;
   justify-content: center;
 }
+
+/**
+ * 下载页样式
+ */
+
+.downloadPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* Banner 样式 */
+.banner {
+  width: 100%;
+  background: linear-gradient(135deg, var(--ifm-color-primary-darker), var(--ifm-color-primary));
+  color: white;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding: 0;
+}
+
+.banner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('/img/invero_logo.png');
+  background-repeat: no-repeat;
+  background-position: 85% center;
+  background-size: 280px;
+  opacity: 0.07;
+  z-index: 0;
+}
+
+.bannerInner {
+  display: flex;
+  width: 100%;
+  max-width: 1200px;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.bannerContent {
+  flex: 1;
+  padding: 7rem 2rem;
+  text-align: left;
+  max-width: 600px;
+}
+
+.bannerImageContainer {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+.bannerImage {
+  max-width: 90%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+  transform: perspective(1000px) rotateY(-10deg);
+  transition: all 0.5s ease;
+}
+
+.bannerImage:hover {
+  transform: perspective(1000px) rotateY(-5deg) translateY(-10px);
+}
+
+.bannerTitle {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  font-weight: 800;
+  line-height: 1.2;
+  position: relative;
+  color: white;
+}
+
+.bannerTitle::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 80px;
+  height: 4px;
+  background: white;
+  border-radius: 2px;
+}
+
+.bannerSubtitle {
+  font-size: 1.4rem;
+  margin: 1.5rem 0;
+  opacity: 0.9;
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+.bannerButtons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.bannerButton {
+  padding: 0.8rem 2rem;
+  border-radius: 50px;
+  font-weight: bold;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+}
+
+.primaryButton {
+  background-color: white;
+  color: var(--ifm-color-primary-darkest);
+}
+
+.primaryButton:hover {
+  background-color: rgba(255, 255, 255, 0.9);
+  transform: translateY(-2px);
+  text-decoration: none;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.secondaryButton {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 2px solid white;
+}
+
+.secondaryButton:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+  text-decoration: none;
+  color: white;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.buttonIcon {
+  margin-right: 8px;
+  font-size: 1.2rem;
+}
+
+@media screen and (max-width: 996px) {
+  .bannerInner {
+    flex-direction: column;
+  }
+  
+  .bannerContent {
+    padding: 5rem 2rem 3rem;
+    text-align: center;
+    max-width: 100%;
+  }
+  
+  .bannerTitle::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .bannerButtons {
+    justify-content: center;
+  }
+  
+  .bannerImageContainer {
+    order: -1;
+    padding-bottom: 0;
+  }
+  
+  .bannerImage {
+    max-width: 70%;
+    transform: none;
+  }
+  
+  .bannerImage:hover {
+    transform: translateY(-5px);
+  }
+}
+
+/* 内容区域样式 */
+.contentSection {
+  width: 100%;
+  max-width: 1200px;
+  padding: 5rem 2rem;
+}
+
+.sectionTitle {
+  text-align: center;
+  font-size: 2.2rem;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.sectionTitle::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 4px;
+  background-color: var(--ifm-color-primary);
+  position: absolute;
+  bottom: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 2px;
+}
+
+/* 特性部分样式 */
+.featuresGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2.5rem;
+  width: 100%;
+}
+
+.featureCard {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 1.5rem;
+  border-radius: 10px;
+  background-color: var(--ifm-card-background-color);
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.featureCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.featureIcon {
+  font-size: 2rem;
+  color: var(--ifm-color-primary);
+  margin-bottom: 1rem;
+}
+
+.featureTitle {
+  font-size: 1.3rem;
+  margin-bottom: 0.8rem;
+  color: var(--ifm-color-primary-darkest);
+}
+
+.featureDescription {
+  color: var(--ifm-color-emphasis-700);
+  line-height: 1.6;
+}

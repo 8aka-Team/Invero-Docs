@@ -1,0 +1,907 @@
+/**
+ * Invero 下载页面样式 - 现代简约风格
+ */
+
+:root {
+  --download-spacing-xs: 8px;
+  --download-spacing-sm: 16px;
+  --download-spacing-md: 24px;
+  --download-spacing-lg: 32px;
+  --download-spacing-xl: 48px;
+  
+  --download-radius-sm: 6px;
+  --download-radius-md: 12px;
+  --download-radius-lg: 16px;
+  
+  --download-shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
+  --download-shadow-md: 0 4px 16px rgba(0, 0, 0, 0.08);
+  --download-shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.1);
+  
+  --download-transition: all 0.25s ease;
+}
+
+/* Banner 区域 */
+.banner {
+  background: linear-gradient(120deg, var(--ifm-color-primary-darker), var(--ifm-color-primary));
+  padding: var(--download-spacing-xl) var(--download-spacing-md);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.bannerContent {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.bannerTitle {
+  font-size: 3rem;
+  font-weight: 800;
+  color: white;
+  margin-bottom: var(--download-spacing-md);
+  letter-spacing: -0.5px;
+}
+
+.bannerSubtitle {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* 主下载区域 */
+.downloadContainer {
+  background-color: var(--ifm-background-color);
+}
+
+.downloadContent {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: var(--download-spacing-xl) var(--download-spacing-md);
+}
+
+.downloadHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--download-spacing-md);
+  flex-wrap: wrap;
+  gap: var(--download-spacing-md);
+}
+
+.downloadTitle {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--ifm-color-emphasis-900);
+  margin: 0;
+}
+
+.downloadVersionDesc {
+  margin-bottom: var(--download-spacing-lg);
+}
+
+.versionDescription {
+  color: var(--ifm-color-emphasis-700);
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+/* 版本选择器 */
+.versionToggle {
+  display: flex;
+  background-color: var(--ifm-background-surface-color);
+  border-radius: 30px;
+  padding: 4px;
+  box-shadow: var(--download-shadow-sm);
+  border: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.versionButton {
+  background: none;
+  border: none;
+  border-radius: 25px;
+  padding: 8px 16px;
+  cursor: pointer;
+  color: var(--ifm-color-emphasis-700);
+  transition: var(--download-transition);
+  font-weight: 500;
+}
+
+.versionButtonContent {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.versionButtonIcon {
+  display: flex;
+  align-items: center;
+  height: 18px;
+  width: 18px;
+  color: var(--ifm-color-emphasis-600);
+}
+
+.versionButton:hover {
+  color: var(--ifm-color-emphasis-900);
+}
+
+.activeVersion {
+  background-color: var(--ifm-color-primary);
+  color: white !important;
+}
+
+.activeVersion .versionButtonIcon {
+  color: white;
+}
+
+/* 版本卡片列表 */
+.releaseList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: var(--download-spacing-md);
+  margin-bottom: var(--download-spacing-xl);
+}
+
+/* 版本卡片 */
+.releaseCard {
+  background-color: var(--ifm-background-surface-color);
+  border-radius: var(--download-radius-lg);
+  box-shadow: var(--download-shadow-sm);
+  border: 1px solid var(--ifm-color-emphasis-200);
+  overflow: hidden;
+  transition: var(--download-transition);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.releaseCard:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--download-shadow-md);
+  border-color: var(--ifm-color-primary-lightest);
+}
+
+.releaseHead {
+  padding: var(--download-spacing-md);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.releaseDetails {
+  flex: 1;
+}
+
+.releaseName {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--ifm-color-emphasis-900);
+  margin-bottom: 8px;
+}
+
+.releaseInfo {
+  display: flex;
+  align-items: center;
+  gap: var(--download-spacing-sm);
+  flex-wrap: wrap;
+}
+
+.releaseDate {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.9rem;
+  color: var(--ifm-color-emphasis-600);
+}
+
+.releaseDateIcon {
+  width: 16px;
+  height: 16px;
+  color: var(--ifm-color-emphasis-500);
+}
+
+.releaseType {
+  font-size: 0.8rem;
+  font-weight: 500;
+  padding: 3px 8px;
+  border-radius: 12px;
+}
+
+.stableType {
+  background-color: var(--ifm-color-success-contrast-background);
+  color: var(--ifm-color-success-darker);
+}
+
+.prereleaseType {
+  background-color: var(--ifm-color-warning-contrast-background);
+  color: var(--ifm-color-warning-darker);
+}
+
+.releaseActions {
+  display: flex;
+  align-items: center;
+}
+
+.viewDetailsLink {
+  font-size: 0.9rem;
+  color: var(--ifm-color-primary);
+  text-decoration: none;
+  transition: var(--download-transition);
+}
+
+.viewDetailsLink:hover {
+  color: var(--ifm-color-primary-dark);
+  text-decoration: underline;
+}
+
+/* 文件列表 */
+.releaseFiles {
+  padding: var(--download-spacing-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--download-spacing-sm);
+  flex: 1;
+}
+
+/* 文件卡片 */
+.fileCard {
+  display: flex;
+  align-items: center;
+  gap: var(--download-spacing-md);
+  padding: 12px;
+  border-radius: var(--download-radius-md);
+  border: 1px solid var(--ifm-color-emphasis-200);
+  background-color: var(--ifm-background-color);
+  transition: var(--download-transition);
+}
+
+.fileCard:hover {
+  background-color: var(--ifm-color-primary-contrast-background);
+  border-color: var(--ifm-color-primary-lighter);
+}
+
+.fileIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  color: var(--ifm-color-primary);
+}
+
+.fileIconSvg {
+  width: 24px;
+  height: 24px;
+}
+
+.fileInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.fileName {
+  font-weight: 500;
+  font-size: 0.95rem;
+  color: var(--ifm-color-emphasis-900);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.fileSize {
+  font-size: 0.8rem;
+  color: var(--ifm-color-emphasis-600);
+}
+
+.downloadButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background-color: var(--ifm-color-primary);
+  color: white;
+  border-radius: var(--download-radius-sm);
+  transition: var(--download-transition);
+}
+
+.downloadButton:hover {
+  background-color: var(--ifm-color-primary-dark);
+  transform: translateY(-2px);
+}
+
+.downloadIcon {
+  width: 18px;
+  height: 18px;
+}
+
+/* 没有可用文件 */
+.noFiles {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--download-spacing-lg);
+  text-align: center;
+  flex: 1;
+}
+
+.noFilesIcon {
+  color: var(--ifm-color-emphasis-500);
+  width: 48px;
+  height: 48px;
+  margin-bottom: var(--download-spacing-sm);
+}
+
+.noFilesText {
+  font-size: 1rem;
+  color: var(--ifm-color-emphasis-700);
+  margin-bottom: var(--download-spacing-md);
+}
+
+.sourceCodeLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--ifm-color-primary);
+  font-weight: 500;
+  font-size: 0.95rem;
+  text-decoration: none;
+  padding: 8px 16px;
+  border: 1px solid var(--ifm-color-primary);
+  border-radius: var(--download-radius-md);
+  transition: var(--download-transition);
+}
+
+.sourceCodeLink:hover {
+  background-color: var(--ifm-color-primary);
+  color: white;
+  text-decoration: none;
+}
+
+.sourceCodeIcon {
+  width: 16px;
+  height: 16px;
+}
+
+/* 开发版构建卡片 */
+.devBuildCard {
+  background-color: var(--ifm-background-surface-color);
+  border-radius: var(--download-radius-lg);
+  box-shadow: var(--download-shadow-sm);
+  overflow: hidden;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  transition: var(--download-transition);
+}
+
+.devBuildCard:hover {
+  box-shadow: var(--download-shadow-md);
+  border-color: var(--ifm-color-primary-lightest);
+}
+
+.devBuildContent {
+  padding: var(--download-spacing-lg);
+}
+
+.devBuildHeader {
+  display: flex;
+  align-items: center;
+  gap: var(--download-spacing-sm);
+  margin-bottom: var(--download-spacing-md);
+}
+
+.devBuildIcon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ifm-color-primary);
+}
+
+.devBuildTitle {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--ifm-color-emphasis-900);
+  margin: 0;
+}
+
+.devBuildDescription {
+  font-size: 1rem;
+  color: var(--ifm-color-emphasis-700);
+  line-height: 1.6;
+  margin-bottom: var(--download-spacing-md);
+}
+
+/* 开发版构建列表 */
+.devBuildList {
+  margin-top: var(--download-spacing-md);
+  border-top: 1px solid var(--ifm-color-emphasis-200);
+  padding-top: var(--download-spacing-md);
+}
+
+.devBuildListHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--download-spacing-md);
+}
+
+.devBuildListTitle {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--ifm-color-emphasis-900);
+  margin: 0;
+}
+
+.refreshButton {
+  background: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  color: var(--ifm-color-emphasis-600);
+  border-radius: var(--download-radius-md);
+  cursor: pointer;
+  transition: var(--download-transition);
+}
+
+.refreshButton:hover {
+  color: var(--ifm-color-primary);
+  background-color: var(--ifm-color-emphasis-100);
+}
+
+.refreshButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.refreshIcon {
+  width: 20px;
+  height: 20px;
+}
+
+.rotating {
+  animation: rotate 1.4s linear infinite;
+}
+
+.viewAllButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--ifm-color-primary);
+  font-weight: 500;
+  font-size: 0.95rem;
+  text-decoration: none;
+  padding: 8px 16px;
+  border: 1px solid var(--ifm-color-primary);
+  border-radius: var(--download-radius-md);
+  transition: var(--download-transition);
+}
+
+.viewAllButton:hover {
+  background-color: var(--ifm-color-primary);
+  color: white;
+  text-decoration: none;
+}
+
+.viewAllButtonIcon {
+  width: 16px;
+  height: 16px;
+  transition: transform 0.2s ease;
+}
+
+.viewAllButton:hover .viewAllButtonIcon {
+  transform: translateX(3px);
+}
+
+/* 构建项目 */
+.buildsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--download-spacing-sm);
+  margin-bottom: var(--download-spacing-md);
+}
+
+.buildItem {
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: var(--download-radius-md);
+  background-color: var(--ifm-background-color);
+  overflow: hidden;
+  transition: var(--download-transition);
+}
+
+.buildItem:hover {
+  box-shadow: var(--download-shadow-sm);
+  border-color: var(--ifm-color-primary-lighter);
+}
+
+.buildHeader {
+  padding: var(--download-spacing-sm);
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.buildInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.buildName {
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--ifm-color-emphasis-900);
+  margin-bottom: 4px;
+}
+
+.buildMeta {
+  display: flex;
+  align-items: center;
+  gap: var(--download-spacing-sm);
+  flex-wrap: wrap;
+  font-size: 0.85rem;
+  color: var(--ifm-color-emphasis-600);
+}
+
+.buildBranch {
+  display: inline-block;
+  padding: 2px 8px;
+  background-color: var(--ifm-color-emphasis-100);
+  border-radius: 12px;
+}
+
+.buildDate {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.buildDateIcon {
+  width: 14px;
+  height: 14px;
+}
+
+.buildActions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: var(--download-spacing-sm);
+  gap: var(--download-spacing-sm);
+}
+
+.buildDownloadButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background-color: var(--ifm-color-primary);
+  color: white;
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 6px 12px;
+  border-radius: var(--download-radius-sm);
+  text-decoration: none;
+  transition: var(--download-transition);
+}
+
+.buildDownloadButton:hover {
+  background-color: var(--ifm-color-primary-dark);
+  color: white;
+  text-decoration: none;
+  transform: translateY(-1px);
+}
+
+.buildDownloadIcon {
+  width: 16px;
+  height: 16px;
+}
+
+.buildViewLink {
+  font-size: 0.9rem;
+  color: var(--ifm-color-primary);
+  text-decoration: none;
+  transition: var(--download-transition);
+}
+
+.buildViewLink:hover {
+  color: var(--ifm-color-primary-dark);
+  text-decoration: underline;
+}
+
+.devBuildLoading, .devBuildError, .devBuildEmpty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--download-spacing-md);
+  text-align: center;
+  min-height: 150px;
+}
+
+.devBuildErrorIcon, .devBuildEmptyIcon {
+  width: 36px;
+  height: 36px;
+  margin-bottom: var(--download-spacing-sm);
+  color: var(--ifm-color-emphasis-500);
+}
+
+.devBuildErrorIcon {
+  color: var(--ifm-color-danger);
+}
+
+.devBuildFooter {
+  display: flex;
+  justify-content: center;
+  margin-top: var(--download-spacing-md);
+  padding-top: var(--download-spacing-md);
+  border-top: 1px solid var(--ifm-color-emphasis-200);
+}
+
+/* 通用操作按钮 */
+.actionButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: white;
+  background-color: var(--ifm-color-primary);
+  text-decoration: none;
+  padding: 10px 18px;
+  border-radius: var(--download-radius-md);
+  transition: var(--download-transition);
+}
+
+.actionButton:hover {
+  background-color: var(--ifm-color-primary-dark);
+  text-decoration: none;
+  color: white;
+  transform: translateY(-2px);
+}
+
+.actionButtonIcon {
+  width: 16px;
+  height: 16px;
+  transition: transform 0.2s ease;
+}
+
+.actionButton:hover .actionButtonIcon {
+  transform: translateX(3px);
+}
+
+/* 加载状态 */
+.loadingContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--download-spacing-xl) 0;
+}
+
+.loadingSpinner {
+  width: 48px;
+  height: 48px;
+  margin-bottom: var(--download-spacing-md);
+}
+
+.spinnerSvg {
+  animation: rotate 1.4s linear infinite;
+}
+
+.spinnerPath {
+  stroke: var(--ifm-color-primary);
+  stroke-linecap: round;
+  animation: dash 1.4s ease-in-out infinite;
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes dash {
+  0% {
+    stroke-dasharray: 1, 150;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -35;
+  }
+  100% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -124;
+  }
+}
+
+.loadingText {
+  font-size: 1.1rem;
+  color: var(--ifm-color-emphasis-700);
+}
+
+/* 错误状态 */
+.errorState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: var(--download-spacing-xl) 0;
+}
+
+.errorIcon {
+  width: 48px;
+  height: 48px;
+  color: var(--ifm-color-danger);
+  margin-bottom: var(--download-spacing-md);
+}
+
+.errorTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--ifm-color-danger);
+  margin-bottom: var(--download-spacing-sm);
+}
+
+.errorMessage {
+  font-size: 1rem;
+  color: var(--ifm-color-emphasis-700);
+  margin-bottom: var(--download-spacing-lg);
+  max-width: 500px;
+}
+
+.errorAction {
+  margin-top: var(--download-spacing-sm);
+}
+
+/* 空状态 */
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: var(--download-spacing-xl) 0;
+}
+
+.emptyIcon {
+  width: 48px;
+  height: 48px;
+  color: var(--ifm-color-emphasis-500);
+  margin-bottom: var(--download-spacing-md);
+}
+
+.emptyTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--ifm-color-emphasis-800);
+  margin-bottom: var(--download-spacing-sm);
+}
+
+.emptyDescription {
+  font-size: 1rem;
+  color: var(--ifm-color-emphasis-700);
+  margin-bottom: var(--download-spacing-lg);
+  max-width: 500px;
+}
+
+.emptyAction {
+  margin-top: var(--download-spacing-sm);
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .bannerTitle {
+    font-size: 2.4rem;
+  }
+  
+  .downloadHeader {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .releaseList {
+    grid-template-columns: 1fr;
+  }
+  
+  .releaseHead {
+    flex-direction: column;
+  }
+  
+  .releaseActions {
+    margin-top: var(--download-spacing-sm);
+  }
+}
+
+@media (max-width: 480px) {
+  .bannerTitle {
+    font-size: 2rem;
+  }
+  
+  .versionToggle {
+    width: 100%;
+    flex-direction: column;
+    border-radius: var(--download-radius-md);
+  }
+  
+  .versionButton {
+    width: 100%;
+    justify-content: flex-start;
+  }
+  
+  .fileCard {
+    flex-wrap: wrap;
+  }
+  
+  .downloadButton {
+    margin-left: auto;
+  }
+  
+  .buildMeta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+  
+  .buildStatus, .buildBranch, .buildDate {
+    margin-right: 0;
+  }
+}
+
+/* 开发版构建卡片组件样式 */
+.devBuildWarning {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: var(--download-spacing-md);
+}
+
+.errorMessage {
+  display: flex;
+  align-items: center;
+  gap: var(--download-spacing-sm);
+  padding: var(--download-spacing-sm);
+  margin-top: var(--download-spacing-sm);
+  background-color: rgba(255, 229, 100, 0.2);
+  border-left: 4px solid #ffe564;
+  border-radius: var(--download-radius-sm);
+}
+
+.warningIcon {
+  color: #b0911e;
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.errorMessage p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--ifm-color-emphasis-900);
+}
+
+/* 构建状态标签 */
+.buildStatus {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 2px 6px;
+  border-radius: 10px;
+}
+
+.buildStatusSuccess {
+  background-color: var(--ifm-color-success-contrast-background);
+  color: var(--ifm-color-success-darker);
+}
+
+.buildStatusFailure {
+  background-color: var(--ifm-color-danger-contrast-background);
+  color: var(--ifm-color-danger-darker);
+}
+
+.buildStatusPending {
+  background-color: var(--ifm-color-warning-contrast-background);
+  color: var(--ifm-color-warning-darker);
+} 
