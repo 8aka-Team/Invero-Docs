@@ -678,18 +678,87 @@ pre:hover .code-copy-button {
   border-radius: var(--ifm-card-border-radius, var(--ifm-global-radius));
   overflow: hidden;
   box-shadow: var(--ifm-global-shadow-lw);
-  transition: all 0.3s ease;
+  transition: all 0.1s ease;
   margin-bottom: 2rem;
 }
 
 .card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--ifm-global-shadow-md);
+  transform: none;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+  border-color: var(--ifm-color-primary-light);
 }
 
 [data-theme='dark'] .card {
   background-color: var(--ifm-card-background-color, var(--ifm-background-surface-color));
   border-color: var(--ifm-color-gray-800);
+}
+
+[data-theme='dark'] .card:hover {
+  border-color: var(--ifm-color-primary-lighter);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* 卡片容器样式优化 */
+.cardContainer_fWXF {
+  text-decoration: none !important;
+  color: inherit;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem !important;
+  border-radius: var(--ifm-global-radius);
+  border: 1px solid var(--ifm-color-gray-200);
+  background-color: var(--ifm-background-color);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
+  transition: all 0.2s ease;
+}
+
+.cardContainer_fWXF:hover {
+  transform: none;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+  border-color: var(--ifm-color-primary);
+  text-decoration: none;
+}
+
+/* 卡片标题样式 */
+.cardTitle_rnsV {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  color: var(--ifm-color-emphasis-900);
+  transition: color 0.3s ease-in-out;
+}
+
+.cardContainer_fWXF:hover .cardTitle_rnsV {
+  color: var(--ifm-color-primary);
+}
+
+/* 卡片描述样式 */
+.cardDescription_PWke {
+  font-size: 0.95rem;
+  color: var(--ifm-color-emphasis-700);
+  margin-bottom: 0;
+  margin-top: auto;
+  padding-top: 0.75rem;
+}
+
+[data-theme='dark'] .cardContainer_fWXF {
+  background-color: var(--ifm-background-surface-color);
+  border-color: var(--ifm-color-gray-800);
+}
+
+[data-theme='dark'] .cardContainer_fWXF:hover {
+  border-color: var(--ifm-color-primary-lighter);
+  background-color: var(--ifm-color-emphasis-100);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+}
+
+[data-theme='dark'] .cardTitle_rnsV {
+  color: var(--ifm-color-emphasis-900);
+}
+
+[data-theme='dark'] .cardDescription_PWke {
+  color: var(--ifm-color-emphasis-600);
 }
 
 .card__image {
@@ -776,7 +845,7 @@ pre:hover .code-copy-button {
 
 /* ======== 页脚样式 ======== */
 .footer {
-  padding: 3rem 0;
+  padding: 3rem 8rem !important;
   background-color: var(--ifm-background-surface-color);
   border-top: 1px solid var(--ifm-color-gray-200);
   font-size: 0.9rem;
@@ -862,8 +931,8 @@ pre:hover .code-copy-button {
     padding: 0.75rem;
   }
   
-  .footer .container {
-    padding: 0 2rem;
+  .footer {
+    padding: 2rem 1.5rem !important;
   }
   
   .footer__links {
@@ -1062,7 +1131,7 @@ pre:hover .code-copy-button {
   }
   
   .footer {
-    padding: 2rem 1rem;
+    padding: 2rem 1.5rem;
   }
   
   .footer__links {
