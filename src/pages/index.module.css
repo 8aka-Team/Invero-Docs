@@ -117,12 +117,16 @@
   border-radius: 2px;
 }
 
+.bannerSubtitleWrapper {
+  margin: 1.5rem 0;
+}
+
 .bannerSubtitle {
   font-size: 1.4rem;
-  margin: 1.5rem 0;
   opacity: 0.9;
   font-weight: 300;
   line-height: 1.6;
+  margin: 0.3rem 0;
 }
 
 .bannerButtons {
@@ -184,6 +188,21 @@
     max-width: 100%;
   }
   
+  .bannerTitle {
+    font-size: 2.8rem;
+    line-height: 1.2;
+  }
+  
+  .bannerSubtitleWrapper {
+    margin: 1.2rem 0;
+  }
+  
+  .bannerSubtitle {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    margin: 0.2rem 0;
+  }
+  
   .bannerTitle::after {
     left: 50%;
     transform: translateX(-50%);
@@ -205,6 +224,54 @@
   
   .bannerImage:hover {
     transform: translateY(-5px);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .bannerTitle {
+    font-size: 2.5rem;
+  }
+  
+  .bannerSubtitle {
+    font-size: 1.1rem;
+  }
+  
+  .bannerButton {
+    padding: 0.7rem 1.5rem;
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .bannerContent {
+    padding: 4rem 1.5rem 2.5rem;
+  }
+  
+  .bannerTitle {
+    font-size: 2.2rem;
+  }
+  
+  .bannerSubtitle {
+    font-size: 1rem;
+    line-height: 1.4;
+  }
+  
+  .bannerButtons {
+    flex-direction: column;
+    gap: 0.8rem;
+    width: 100%;
+    max-width: 250px;
+    margin: 1.5rem auto 0;
+  }
+  
+  .bannerButton {
+    width: 100%;
+    justify-content: center;
+    padding: 0.8rem 1rem;
+  }
+  
+  .bannerImage {
+    max-width: 85%;
   }
 }
 

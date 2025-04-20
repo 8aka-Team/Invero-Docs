@@ -26,6 +26,7 @@ const config = {
     clientModules: [
         require.resolve('./src/clientModules/routeModules.js'),
         require.resolve('./src/clientModules/adsModules.js'),
+        require.resolve('./src/clientModules/fixNavbar.js'),
     ],
 
     presets: [

@@ -13,9 +13,14 @@ function Banner() {
       <div className={styles.bannerInner}>
         <div className={styles.bannerContent}>
           <h1 className={styles.bannerTitle}>{siteConfig.title}</h1>
+          <div className={styles.bannerSubtitleWrapper}>
+            <p className={styles.bannerSubtitle}>
+              <Translate>轻松创建高度自定义的 Minecraft GUI 插件</Translate>
+            </p>
           <p className={styles.bannerSubtitle}>
-            <Translate>轻松创建高度自定义的 Minecraft GUI 插件，为您的服务器添加精美界面</Translate>
+              <Translate>为您的服务器添加精美界面</Translate>
           </p>
+          </div>
           <div className={styles.bannerButtons}>
                 <Link
               className={`${styles.bannerButton} ${styles.primaryButton}`}
