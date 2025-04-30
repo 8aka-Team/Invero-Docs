@@ -55,6 +55,16 @@ connect <action>
 connect <serverName> for <playerName>
 ```
 
+## 依赖
+- 名称：`depend`
+- 描述：检查服务器是否有指定依赖
+- 返回：true/false
+- 用法
+```
+depend plugin <action>
+depend papi <action>
+```
+
 ## 语境
 
 - 名称：`context`, `ctx`
