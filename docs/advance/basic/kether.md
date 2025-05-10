@@ -65,6 +65,26 @@ depend plugin <action>
 depend papi <action>
 ```
 
+### 最大值
+- 名称：`max`
+- 描述：取取 两值/多值 之最大
+- 返回：整型/浮点型
+- 用法
+```
+max {aciton} {action}
+max [ {action} {action} {action} ]
+```
+
+### 最小值
+- 名称：`min`
+- 描述：取取 两值/多值 之最小
+- 返回：整型/浮点型
+- 用法
+```
+min {aciton} {action}
+min [ {action} {action} {action} ]
+```
+
 ## 语境
 
 - 名称：`context`, `ctx`
