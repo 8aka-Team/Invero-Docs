@@ -33,6 +33,12 @@ const config = {
         require.resolve('./src/clientModules/adsModules.js'),
         require.resolve('./src/clientModules/fixNavbar.js'),
     ],
+    customFields: {
+        // ICP 备案号
+        ICP_LICENSE: ICP_LICENSE,
+        // 是否为中国站点
+        IS_CHINA_SITE: IS_CHINA_SITE,
+    },
 
     presets: [
         [
