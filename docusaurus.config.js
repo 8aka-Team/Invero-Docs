@@ -4,13 +4,18 @@
 const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
+const IS_CHINA_SITE = process.env.CHINA === 'true';
+const ICP_LICENSE = process.env.ICP_LICENSE;
+
+
 /** @type {import('@docusaurus/types').Config} */
 const config = {
     future: {
         experimental_faster: true,
     },
     title: 'Invero',
-    url: 'https://invero.8aka.org',
+    url: IS_CHINA_SITE ? 'https://invero.8aka.cn' : 'https://invero.8aka.org',
+
     baseUrl: '/',
     onBrokenLinks: 'ignore',
     onBrokenMarkdownLinks: 'ignore',

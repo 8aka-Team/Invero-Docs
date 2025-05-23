@@ -37,6 +37,7 @@ export default function DocItemLayout({children}) {
   const { frontMatter } = useDoc();
   const { hide_comment: hideComment } = frontMatter;
   const {metadata} = useDoc();
+  const {IS_CHINA_SITE: isChinaSite} = siteConfig.customFields; // 获取 IS_CHINA_SITE
   return (
     <div className="row">
       <div className={clsx('col', !docTOC.hidden && styles.docItemCol)}>
@@ -52,7 +53,7 @@ export default function DocItemLayout({children}) {
           </article>
           <DocItemPaginator />
         </div>
-        {!hideComment && <Comment />}
+        {!hideComment && !isChinaSite && <Comment />}
       </div>
       {docTOC.desktop && <div className="col col--3">{docTOC.desktop}</div>}
     </div>
