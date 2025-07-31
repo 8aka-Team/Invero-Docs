@@ -107,8 +107,8 @@ items:
       value: ExampleItem
 ```
 
-其中的source: ni也可以写成source: neigeitems，没区别
-value:后面跟物品ID，也可以加指向数据，比如value: ExampleItem {"test1":"test1","test2":"test2"}
+其中的source: ni也可以写成source: neigeitems，没区别  
+value:后面跟物品ID，也可以加指向数据，比如 `value: ExampleItem {"test1":"test1","test2":"test2"}`  
 物品ID优先检测NI物品，获取不到就会尝试获取MM物品
 
 > 序列化物品的支持
