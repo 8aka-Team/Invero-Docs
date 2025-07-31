@@ -11,7 +11,7 @@ sidebar_position: 2
 - 每个动作都有返回值
 
 对返回值的直接引用或二次判断，是将 Kether 语句当条件使用的底层逻辑  
-阅读本章时建议同时打开 [Kether Repository](https://kether.tabooproject.org/list.html) 进行一些基础动作的查阅
+阅读本章时建议同时打开 [Kether Repository](https://taboo.8aka.org/kether-list) 进行一些基础动作的查阅
 
 ## 权限判断
 

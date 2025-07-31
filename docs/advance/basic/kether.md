@@ -6,6 +6,8 @@ sidebar_position: 2
 
 本节不会阐述 Kether 的相关用法，仅介绍 Invero 基于 Kether 拓展的一些语法和示例
 
+如果你想要 [执行命令](https://taboo.8aka.cn/kether-list?action=command) / [展示标题](https://taboo.8aka.cn/kether-list?action=title) / [播放声音](https://taboo.8aka.cn/kether-list?action=sound) 等，请查看 [Kether List](https://taboo.8aka.cn/kether-list)
+
 ## 发送消息
 
 - 名称：`message`, `msg`
@@ -56,30 +58,36 @@ connect <serverName> for <playerName>
 ```
 
 ## 依赖
+
 - 名称：`depend`
 - 描述：检查服务器是否有指定依赖
 - 返回：true/false
 - 用法
+
 ```
 depend plugin <action>
 depend papi <action>
 ```
 
-### 最大值
+## 最大值
+
 - 名称：`max`
 - 描述：取取 两值/多值 之最大
 - 返回：整型/浮点型
 - 用法
+
 ```
 max {aciton} {action}
 max [ {action} {action} {action} ]
 ```
 
-### 最小值
+## 最小值
+
 - 名称：`min`
 - 描述：取取 两值/多值 之最小
 - 返回：整型/浮点型
 - 用法
+
 ```
 min {aciton} {action}
 min [ {action} {action} {action} ]

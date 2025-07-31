@@ -29,7 +29,7 @@ tell "Hello World!"
 ```
 
 到此为止，你已经明白了 Kether 最简单的逻辑  
-了解其他更多内置的动作，请访问 [Kether Repository](https://kether.tabooproject.org/list.html)
+了解其他更多内置的动作，请访问 [Kether Repository](https://taboo.8aka.org/kether-list)
 
 ## 推荐资料
 

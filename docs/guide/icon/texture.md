@@ -67,6 +67,50 @@ head: '<头颅标识符>'
 | **headdatabase** | hdb    | HeadDatabase 插件支持    |
 | **NeigeItems**   | ni     | NeigeItems 插件支持      |
 
+示例：
+
+- zaphkiel
+
+```yaml
+zap:custom_item
+```
+
+- oraxen
+
+```yaml
+oraxen:custom_item
+```
+
+- itemsadder
+
+```yaml
+ia:custom_item
+```
+
+- headdatabase
+
+```yaml
+hdb:custom_item
+```
+
+- NeigeItems
+
+```yaml
+title: 'NI物品测试'
+
+layout: '    *    '
+
+items:
+  '*':
+    texture:
+      source: ni
+      value: ExampleItem
+```
+
+其中的source: ni也可以写成source: neigeitems，没区别
+value:后面跟物品ID，也可以加指向数据，比如value: ExampleItem {"test1":"test1","test2":"test2"}
+物品ID优先检测NI物品，获取不到就会尝试获取MM物品
+
 > 序列化物品的支持
 
 | **节点**         | 别称           | 描述                 |
