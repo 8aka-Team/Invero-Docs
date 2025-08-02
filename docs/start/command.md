@@ -4,22 +4,30 @@
 
 ```
 Usage: /invero
-        ├── dev
-        │   ├── runKether
-        │   ├── testMiniMessage
-        │   ├── testComponent
-        │   ├── parseMessage
-        │   ├── printSerailizedMenu
-        │   ├── printTasks
-        │   ├── printVariables
-        │   ├── printSession
-        │   └── printWindow
-        ├── menu
-        │   ├── reload
-        │   ├── list [<filter>]
-        │   ├── dump <menu>
-        │   └── open <menu> [<player>] [<arguments>]
-        └── item encode [<slot>]
+├── dev
+│   ├── runKether
+│   ├── testComponent
+│   ├── printSerailizedMenu
+│   ├── printTasks
+│   ├── printVariables
+│   ├── printSession
+│   └── printWindow
+├── menu
+│    ├── reload
+│    ├── list [<filter>]
+│    ├── dump <menu>
+│    └── open <menu> [<player>] [<arguments>]
+├── item
+│    ├── encode [<slot>]
+│    └── encodePrint [<slot>]
+├── gnode
+│    ├── list
+│    ├── reload
+│    ├── info
+│    ├── test
+│    └── dump <node>
+└── update
+
 ```
 
 ## 传参开启

@@ -35,6 +35,20 @@ Workspaces:
   paths:
     - 'plugins/Invero/workspace'
 
+# 全局节点配置 | Global Nodes Configuration
+GlobalNodes:
+  # 是否启用全局节点功能 | Enable global nodes feature
+  enabled: true
+  # 全局节点工作路径 | Global nodes workspace paths
+  paths:
+    - 'plugins/Invero/global-nodes'
+  # 匹配文件名加载（正则表达式） | filter file name
+  filter: '^(?![#!]).*\.(?i)(conf|hocon|yaml|yml|toml|json)$'
+  # 节点查找优先级 | Node lookup priority
+  # menu-first: 优先查找菜单本地节点，再查找全局节点
+  # global-first: 优先查找全局节点，再查找菜单本地节点
+  priority: menu-first
+
 Menu:
   # 是否默认使用虚拟菜单
   virtual-by-default: false
