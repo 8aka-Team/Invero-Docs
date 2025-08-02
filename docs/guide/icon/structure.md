@@ -61,6 +61,7 @@ sidebar_position: 1
 | **oraxen**       | -      | Oraxen 插件支持          |
 | **itemsadder**   | ia     | ItemsAdder 插件支持      |
 | **NeigeItems**   | ni     | NeigeItems 插件支持      |
+| **craftengine**  | ce     | CraftEngine 插件支持     |
 | **headdatabase** | hdb    | HeadDatabase 插件支持    |
 | **serialized**   | base64 | Serialized base64 物品  |
 | **kether**       | -      | Kether 脚本物品          |
