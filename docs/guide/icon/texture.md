@@ -69,7 +69,7 @@ head: '<头颅标识符>'
 | **magicgem**     | gem    | MagicGem 插件支持        |
 | **mmoitems**     | mi     | MMOItems 插件支持        |
 | **NeigeItems**   | ni     | NeigeItems 插件支持      |
-| **Nexo**         | -      | Nexo 插件支持            |
+| **nexo**         | -      | Nexo 插件支持            |
 | **oraxen**       | -      | Oraxen 插件支持          |
 | **sxitem**       | si     | SX-Item 插件支持         |
 | **zaphkiel**     | zap    | Zaphkiel 插件支持        |
