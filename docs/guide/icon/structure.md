@@ -57,17 +57,19 @@ sidebar_position: 1
 | **节点**           | 别称     | 描述                 |
 |------------------|--------|-------------------------|
 | **head**         | skull  | 自定义头颅材质            |
-| **zaphkiel**     | zap    | Zaphkiel 插件支持        |
-| **oraxen**       | -      | Oraxen 插件支持          |
-| **itemsadder**   | ia     | ItemsAdder 插件支持      |
-| **NeigeItems**   | ni     | NeigeItems 插件支持      |
 | **craftengine**  | ce     | CraftEngine 插件支持     |
-| **HMCCosmetics** | hmc    | HMCCosmetics 插件支持    |
-| **SX-Item**      | si     | SX-Item 插件支持         |
-| **MMOItems**     | mi     | MMOItems 插件支持        |
 | **EcoItems**     | eco    | EcoItems 插件支持        |
-| **MagicCosmetics** | magic  | MagicCosmetics 插件支持 |
-| **headdatabase** | hdb    | HeadDatabase 插件支持    |
+| **HeadDatabase** | hdb    | HeadDatabase 插件支持    |
+| **HMCCosmetics** | hmc    | HMCCosmetics 插件支持    |
+| **itemsadder**   | ia     | ItemsAdder 插件支持      |
+| **MagicCosmetics** | magic | MagicCosmetics 插件支持 |
+| **MagicGem**     | gem    | MagicGem 插件支持        |
+| **MMOItems**     | mi     | MMOItems 插件支持        |
+| **NeigeItems**   | ni     | NeigeItems 插件支持      |
+| **Nexo**         | -      | Nexo 插件支持            |
+| **oraxen**       | -      | Oraxen 插件支持          |
+| **SX-Item**      | si     | SX-Item 插件支持         |
+| **zaphkiel**     | zap    | Zaphkiel 插件支持        |
 | **serialized**   | base64 | Serialized base64 物品   |
 | **kether**       | -      | Kether 脚本物品          |
 
