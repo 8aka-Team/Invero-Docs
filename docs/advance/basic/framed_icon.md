@@ -22,12 +22,19 @@ sidebar_position: 5
 
 | **节点**            | 别称                   | 接受值                 | 描述                   |
 |---------------------|----------------------|---------------------|-----------------------------|
-| **last**            | delay                | Long                | 物品帧持续的时间            |
-| **material**        | texture, mat         | String / Object     | 图标材质（原版或特殊源）    |
-| **head**            | skull                | String              | 自定义头颅材质              |
+| **last**            | delay                | Long                | 物品帧持续的时间             |
+| **material**        | texture, mat         | String / Object     | 图标材质（原版或特殊源）      |
+| **head**            | skull                | String              | 自定义头颅材质               |
 | **zaphkiel**        | zap                  | String              | Zaphkiel 插件支持           |
 | **oraxen**          | -                    | String              | Oraxen 插件支持             |
 | **itemsadder**      | ia                   | String              | ItemsAdder 插件支持         |
+| **NeigeItems**      | ni                   | String              | NeigeItems 插件支持         |
+| **craftengine**     | ce                   | String              | CraftEngine 插件支持        |
+| **HMCCosmetics**    | hmc                  | String              | HMCCosmetics 插件支持       |
+| **SX-Item**         | si                   | String              | SX-Item 插件支持            |
+| **MMOItems**        | mi                   | String              | MMOItems 插件支持           |
+| **EcoItems**        | eco                  | String              | EcoItems 插件支持           |
+| **MagicCosmetics**  | magic                | String              | MagicCosmetics 插件支持     |
 | **headdatabase**    | hdb                  | String              | HeadDatabase 插件支持       |
 | **serialized**      | base64               | String              | Serialized base64 物品      |
 | **kether**          | -                    | String              | Kether 脚本物品             |

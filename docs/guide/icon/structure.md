@@ -62,8 +62,13 @@ sidebar_position: 1
 | **itemsadder**   | ia     | ItemsAdder 插件支持      |
 | **NeigeItems**   | ni     | NeigeItems 插件支持      |
 | **craftengine**  | ce     | CraftEngine 插件支持     |
+| **HMCCosmetics** | hmc    | HMCCosmetics 插件支持    |
+| **SX-Item**      | si     | SX-Item 插件支持         |
+| **MMOItems**     | mi     | MMOItems 插件支持        |
+| **EcoItems**     | eco    | EcoItems 插件支持        |
+| **MagicCosmetics** | magic  | MagicCosmetics 插件支持 |
 | **headdatabase** | hdb    | HeadDatabase 插件支持    |
-| **serialized**   | base64 | Serialized base64 物品  |
+| **serialized**   | base64 | Serialized base64 物品   |
 | **kether**       | -      | Kether 脚本物品          |
 
 ### 交互处理

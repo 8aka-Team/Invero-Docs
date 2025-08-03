@@ -67,6 +67,11 @@ head: '<头颅标识符>'
 | **headdatabase** | hdb    | HeadDatabase 插件支持    |
 | **NeigeItems**   | ni     | NeigeItems 插件支持      |
 | **craftengine**  | ce     | CraftEngine 插件支持     |
+| **HMCCosmetics** | hmc    | HMCCosmetics 插件支持    |
+| **SX-Item**      | si     | SX-Item 插件支持         |
+| **MMOItems**     | mi     | MMOItems 插件支持        |
+| **EcoItems**     | eco    | EcoItems 插件支持        |
+| **MagicCosmetics** | magic | MagicCosmetics 插件支持 |
 
 示例：
 
@@ -120,6 +125,43 @@ value:后面跟物品ID，也可以加指向数据，比如 `value: ExampleItem 
 ```yaml
 craftengine: namespace:custom_item
 ce: namespace:custom_item
+```
+
+- HMCCosmetics
+
+```yaml
+hmccosmetics: custom_item
+hmc: custom_item
+```
+
+- SX-Item
+
+```yaml
+sxitem: custom_item
+si: custom_item
+```
+
+- MMOItems
+
+```yaml
+mmoitems: namespace:custom_item
+mi: namespace:custom_item
+```
+
+- EcoItems
+
+```yaml
+ecoitems: custom_item
+eco: custom_item
+```
+
+- MagicCosmetics
+
+```yaml
+magiccosmetics: custom_item
+magic: custom_item
+magiccosmetics: equipped:HAT # 某部位的时装（此处为帽子）
+magic: equipped:HAT
 ```
 
 > 序列化物品的支持
