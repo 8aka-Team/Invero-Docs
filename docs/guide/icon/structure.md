@@ -69,6 +69,7 @@ sidebar_position: 1
 | **Nexo**         | -      | Nexo 插件支持            |
 | **oraxen**       | -      | Oraxen 插件支持          |
 | **SX-Item**      | si     | SX-Item 插件支持         |
+| **Slimefun**     | sf     | Slimefun 插件支持        |
 | **zaphkiel**     | zap    | Zaphkiel 插件支持        |
 | **serialized**   | base64 | Serialized base64 物品   |
 | **kether**       | -      | Kether 脚本物品          |

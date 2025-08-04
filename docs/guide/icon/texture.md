@@ -72,6 +72,7 @@ head: '<头颅标识符>'
 | **nexo**         | -      | Nexo 插件支持            |
 | **oraxen**       | -      | Oraxen 插件支持          |
 | **sxitem**       | si     | SX-Item 插件支持         |
+| **slimefun**     | sf     | Slimefun 插件支持        |
 | **zaphkiel**     | zap    | Zaphkiel 插件支持        |
 | **headdatabase** | hdb    | HeadDatabase 插件支持    |
 
@@ -164,6 +165,13 @@ oraxen: custom_item
 ```yaml
 sxitem: custom_item
 si: custom_item
+```
+
+- Slimefun
+
+```yaml
+slimefun: custom_item
+sf: custom_item
 ```
 
 - zaphkiel
