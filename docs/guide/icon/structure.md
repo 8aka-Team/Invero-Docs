@@ -56,7 +56,8 @@ sidebar_position: 1
 
 | **节点**           | 别称     | 描述                 |
 |------------------|--------|-------------------------|
-| **head**         | skull  | 自定义头颅材质            |
+| **head**         | skull  | 自定义头颅材质           |
+| **AzureFlow**    | af     | AzureFlow 插件支持       |
 | **craftengine**  | ce     | CraftEngine 插件支持     |
 | **EcoItems**     | eco    | EcoItems 插件支持        |
 | **HeadDatabase** | hdb    | HeadDatabase 插件支持    |
