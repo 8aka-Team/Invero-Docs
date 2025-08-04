@@ -61,6 +61,7 @@ head: '<头颅标识符>'
 
 | **节点**           | 别称     | 描述                 |
 |------------------|--------|-------------------------|
+| **AzureFlow**    | af     | AzureFlow 插件支持       |
 | **craftengine**  | ce     | CraftEngine 插件支持     |
 | **ecoItems**     | eco    | EcoItems 插件支持        |
 | **hmccosmetics** | hmc    | HMCCosmetics 插件支持    |
@@ -77,6 +78,13 @@ head: '<头颅标识符>'
 | **headdatabase** | hdb    | HeadDatabase 插件支持    |
 
 示例：
+
+- AzureFlow
+
+```yaml
+azureflow: custom_item
+af: custom_item
+```
 
 - CraftEngine
 
