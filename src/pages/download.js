@@ -1,42 +1,237 @@
 import React, { useEffect, useState } from 'react';
 import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Translate, { translate } from '@docusaurus/Translate';
 import clsx from 'clsx';
 
 import styles from './download.module.css';
-import { 
-  CalendarIcon, 
-  DownloadIcon, 
-  FileIcon, 
-  LoadingSpinnerIcon, 
-  ErrorIcon, 
-  EmptyIcon, 
-  GitHubIcon, 
-  NoFilesIcon, 
-  BuildIcon, 
-  ArrowRightIcon, 
-  StableIcon, 
-  PreviewIcon, 
-  AllVersionsIcon,
-  RefreshIcon
+import {
+  DownloadIcon,
+  ErrorIcon,
+  BuildIcon
 } from '../components/DownloadIcons';
 
-function Banner() {
+// 移动端Hero组件
+function MobileHeroSection() {
   return (
-    <div className={styles.banner}>
-      <div className={styles.bannerContent}>
-        <h1 className={styles.bannerTitle}>
-          <Translate>下载 Invero</Translate>
-        </h1>
-        <p className={styles.bannerSubtitle}>
-          <Translate>获取最新版本的 Invero 插件，开始创建你的自定义界面</Translate>
-        </p>
+    <section className={styles.mobileHero}>
+      <div className={styles.mobileHeroContent}>
+        <div className={styles.mobileHeroTitle}>
+          <h1 className={styles.mobileTitleMain}>
+            <Translate>下载 Invero</Translate>
+          </h1>
+          <p className={styles.mobileHeroSubtitle}>
+            <Translate>获取最新版本的 Invero 插件，开始创建你的自定义界面</Translate>
+          </p>
+        </div>
+
+        {/* 标签 */}
+        <div className={styles.mobileHeroTags}>
+          <span className={styles.mobileTag}>
+            <span className={styles.mobileTagIcon}>📦</span>
+            <Translate>多版本支持</Translate>
+          </span>
+          <span className={styles.mobileTag}>
+            <span className={styles.mobileTagIcon}>🚀</span>
+            <Translate>快速下载</Translate>
+          </span>
+          <span className={styles.mobileTag}>
+            <span className={styles.mobileTagIcon}>🔄</span>
+            <Translate>更新检查</Translate>
+          </span>
+        </div>
+
+        {/* 操作按钮 */}
+        <div className={styles.mobileHeroActions}>
+          <Link className={styles.mobileActionButton} to="/docs/about">
+            <span className={styles.mobileActionIcon}>📖</span>
+            <span className={styles.mobileActionText}>
+              <Translate>查看文档</Translate>
+            </span>
+          </Link>
+          <a
+            className={styles.mobileActionButton}
+            href="https://github.com/8aka-Team/Invero"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span className={styles.mobileActionIcon}>💻</span>
+            <span className={styles.mobileActionText}>
+              <Translate>GitHub</Translate>
+            </span>
+          </a>
+        </div>
       </div>
-    </div>
+    </section>
   );
 }
+
+// 桌面端Hero区域 - 采用主页面的左右分栏布局
+function DesktopHeroSection({ activeVersion, setActiveVersion, releases, isLoading, error }) {
+  const [mousePos, setMousePos] = React.useState({ x: 0, y: 0 });
+
+  React.useEffect(() => {
+    const handleMouseMove = (e) => {
+      setMousePos({
+        x: (e.clientX / window.innerWidth) * 100,
+        y: (e.clientY / window.innerHeight) * 100
+      });
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, []);
+
+  // 筛选版本
+  const filteredReleases = releases.filter(release => {
+    if (activeVersion === 'all') return true;
+    if (activeVersion === 'stable') return !release.prerelease;
+    if (activeVersion === 'preview') return release.prerelease;
+    if (activeVersion === 'dev') return false; // 开发版构建不显示release列表
+    return true;
+  });
+
+  return (
+    <section className={styles.hero}>
+      {/* 背景粒子动画 */}
+      <div className={styles.heroBackground}>
+        <div
+          className={styles.backgroundParticles}
+          style={{
+            transform: `translate(${mousePos.x * 0.05}px, ${mousePos.y * 0.05}px)`
+          }}
+        >
+          {[...Array(6)].map((_, i) => (
+            <div
+              key={i}
+              className={styles.particle}
+              style={{ '--delay': `${i * 0.5}s` }}
+            ></div>
+          ))}
+        </div>
+      </div>
+
+      {/* 左侧侧边栏 */}
+      <div className={styles.heroLeft}>
+        {/* 标题 */}
+        <div className={styles.logoTitleSection}>
+          <div className={styles.heroTitle}>
+            <span className={styles.titleMain}>
+              <Translate>下载 Invero</Translate>
+            </span>
+          </div>
+        </div>
+
+        {/* 介绍 */}
+        <div className={styles.heroContent}>
+          <p className={styles.heroSubtitle}>
+            <Translate>获取最新版本的 Invero 插件，开始创建你的自定义界面</Translate>
+          </p>
+
+          {/* 标签 */}
+          <div className={styles.heroTags}>
+            <span className={styles.tag}>
+              <span className={styles.tagIcon}>📦</span>
+              <Translate>多版本支持</Translate>
+            </span>
+            <span className={styles.tag}>
+              <span className={styles.tagIcon}>🚀</span>
+              <Translate>快速下载</Translate>
+            </span>
+            <span className={styles.tag}>
+              <span className={styles.tagIcon}>🔄</span>
+              <Translate>更新检查</Translate>
+            </span>
+          </div>
+        </div>
+
+        {/* 底部按钮 */}
+        <div className={styles.heroActions}>
+          <Link className={styles.actionLink} to="/docs/about">
+            <div className={styles.actionIcon}>📖</div>
+            <div className={styles.actionContent}>
+              <span className={styles.actionText}>
+                <Translate>查看文档</Translate>
+              </span>
+              <span className={styles.actionDesc}>
+                <Translate>了解如何使用</Translate>
+              </span>
+            </div>
+            <div className={styles.actionArrow}>→</div>
+          </Link>
+          <a className={styles.actionLink} href="https://github.com/8aka-Team/Invero" target="_blank" rel="noopener noreferrer">
+            <div className={styles.actionIcon}>💻</div>
+            <div className={styles.actionContent}>
+              <span className={styles.actionText}>
+                <Translate>GitHub 仓库</Translate>
+              </span>
+              <span className={styles.actionDesc}>
+                <Translate>查看源代码</Translate>
+              </span>
+            </div>
+            <div className={styles.actionArrow}>↗</div>
+          </a>
+        </div>
+      </div>
+
+      {/* 右侧滚动内容 */}
+      <div className={styles.heroRight}>
+        <div className={styles.cardsContainer}>
+          <div className={styles.cardsHeader}>
+            <h3 className={styles.cardsTitle}>
+              <Translate>版本发布</Translate>
+            </h3>
+            <div className={styles.cardsTitleLine}></div>
+          </div>
+
+          <VersionToggle
+            activeVersion={activeVersion}
+            setActiveVersion={setActiveVersion}
+          />
+
+          {activeVersion === 'stable' && (
+            <p className={styles.versionDescription}>
+              <Translate>稳定版本经过全面测试，适合用于生产环境</Translate>
+            </p>
+          )}
+          {activeVersion === 'preview' && (
+            <p className={styles.versionDescription}>
+              <Translate>预览版本包含最新功能，但可能存在稳定性问题</Translate>
+            </p>
+          )}
+          {activeVersion === 'dev' && (
+            <p className={styles.versionDescription}>
+              <Translate>开发版构建包含最新的代码更改，适合开发者测试新功能</Translate>
+            </p>
+          )}
+          {activeVersion === 'all' && (
+            <p className={styles.versionDescription}>
+              <Translate>查看所有可用的版本，包括稳定版和预览版</Translate>
+            </p>
+          )}
+
+          {activeVersion === 'dev' ? (
+            <DevelopmentBuildGrid />
+          ) : isLoading ? (
+            <LoadingState />
+          ) : error ? (
+            <ErrorState error={error} />
+          ) : filteredReleases.length === 0 ? (
+            <EmptyState />
+          ) : (
+            <div className={styles.releaseGrid}>
+              {filteredReleases.map(release => (
+                <ReleaseCard key={release.id} release={release} />
+              ))}
+            </div>
+          )}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+
 
 function FileCard({ asset }) {
   return (
@@ -50,8 +245,8 @@ function FileCard({ asset }) {
         <div className={styles.fileName}>{asset.name}</div>
         <div className={styles.fileSize}>{(asset.size / 1024 / 1024).toFixed(2)} MB</div>
       </div>
-      <a 
-        href={asset.browser_download_url} 
+      <a
+        href={asset.browser_download_url}
         className={styles.downloadButton}
         download
         target="_blank"
@@ -69,29 +264,18 @@ function ReleaseCard({ release }) {
   const date = new Date(release.published_at).toLocaleDateString();
   const assets = release.assets || [];
   const jarAssets = assets.filter(asset => asset.name.endsWith('.jar'));
-  
+
   return (
     <div className={styles.releaseCard}>
       <div className={styles.releaseHead}>
         <div className={styles.releaseDetails}>
           <div className={styles.releaseName}>{release.name || release.tag_name}</div>
-        <div className={styles.releaseInfo}>
+          <div className={styles.releaseInfo}>
             <div className={styles.releaseDate}>
               <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" className={styles.releaseDateIcon}>
                 <path d="M6 5V1M14 5V1M5 9H15M19 7V19C19 20.1046 18.1046 21 17 21H3C1.89543 21 1 20.1046 1 19V7C1 5.89543 1.89543 5 3 5H17C18.1046 5 19 5.89543 19 7Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
-            {date}
-            </div>
-            <div 
-              className={clsx(
-                styles.releaseType, 
-                release.prerelease ? styles.prereleaseType : styles.stableType
-              )}
-            >
-              {release.prerelease ? 
-                <Translate>预览版</Translate> : 
-                <Translate>稳定版</Translate>
-              }
+              {date}
             </div>
           </div>
         </div>
@@ -106,15 +290,15 @@ function ReleaseCard({ release }) {
           </a>
         </div>
       </div>
-      
+
       {jarAssets.length > 0 && (
         <div className={styles.releaseFiles}>
           {jarAssets.map(asset => (
             <FileCard key={asset.id} asset={asset} />
           ))}
-      </div>
+        </div>
       )}
-      
+
       {jarAssets.length === 0 && (
         <div className={styles.noFiles}>
           <div className={styles.noFilesIcon}>
@@ -124,13 +308,13 @@ function ReleaseCard({ release }) {
           </div>
           <div className={styles.noFilesText}>
             <Translate>该版本没有可用的下载文件</Translate>
-        </div>
-              <a 
-            href={release.zipball_url} 
+          </div>
+          <a
+            href={release.zipball_url}
             className={styles.sourceCodeLink}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <Translate>下载源代码</Translate>
             <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" className={styles.sourceCodeIcon}>
               <path d="M7 10L5 8M5 8L7 6M5 8H15M13 14L15 16M15 16L17 14M15 16V6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
@@ -142,271 +326,383 @@ function ReleaseCard({ release }) {
   );
 }
 
-function DevelopmentBuildCard() {
+// PC端开发版构建网格组件
+function DevelopmentBuildGrid() {
   const [builds, setBuilds] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+  const [isLoadingMore, setIsLoadingMore] = useState(false);
   const [error, setError] = useState(null);
-  const [expanded, setExpanded] = useState(false);
+  const [page, setPage] = useState(1);
+  const [hasMore, setHasMore] = useState(true);
 
-  const fetchBuilds = async () => {
-    setIsLoading(true);
+  const fetchBuilds = async (pageNum = 1, append = false) => {
+    if (pageNum === 1) {
+      setIsLoading(true);
+    } else {
+      setIsLoadingMore(true);
+    }
     setError(null);
-    
+
     try {
-      // 尝试直接使用GitHub API获取构建信息
-      const response = await fetch('https://api.github.com/repos/8aka-Team/Invero/actions/runs?per_page=10');
-      
+      // 获取构建信息
+      const response = await fetch(`https://api.github.com/repos/8aka-Team/Invero/actions/runs?per_page=20&page=${pageNum}`);
+
       if (!response.ok) {
         throw new Error('获取GitHub Actions数据失败');
       }
-      
+
       const data = await response.json();
-      
+
       // 过滤出工作流名称包含"Plugin Build"的构建
       const pluginBuilds = data.workflow_runs
         .filter(run => run.name && run.name.includes('Plugin Build'))
-        .slice(0, 5)
-        .map(run => ({
-          id: run.id,
-          name: run.name || `构建 #${run.run_number}`,
-          number: run.run_number,
-          branch: run.head_branch || 'unknown',
-          date: new Date(run.created_at).toLocaleDateString(),
-          status: run.conclusion || 'pending',
-          downloadUrl: `https://github.com/8aka-Team/Invero/actions/runs/${run.id}`
-        }));
-      
-      setBuilds(pluginBuilds);
-      
-      if (pluginBuilds.length === 0) {
-        // 如果没有找到构建，添加示例数据
-        const exampleBuilds = [
-          {
-            id: 'example1',
-            name: 'Plugin Build (示例)',
-            number: '41',
-            branch: 'main',
-            date: new Date().toLocaleDateString(),
-            status: 'success',
-            downloadUrl: 'https://github.com/8aka-Team/Invero/actions'
-          },
-          {
-            id: 'example2',
-            name: 'Plugin Build (示例)',
-            number: '40',
-            branch: 'dev',
-            date: new Date().toLocaleDateString(),
-            status: 'success',
-            downloadUrl: 'https://github.com/8aka-Team/Invero/actions'
+        .slice(0, 10);
+
+      // 获取每个构建的提交信息
+      const buildsWithCommits = await Promise.all(
+        pluginBuilds.map(async (run) => {
+          let commitMessage = '获取提交信息失败';
+          try {
+            // 获取提交信息
+            const commitResponse = await fetch(`https://api.github.com/repos/8aka-Team/Invero/commits/${run.head_sha}`);
+            if (commitResponse.ok) {
+              const commitData = await commitResponse.json();
+              commitMessage = commitData.commit.message.split('\n')[0]; // 只取第一行
+              // 限制长度
+              if (commitMessage.length > 60) {
+                commitMessage = commitMessage.substring(0, 60) + '...';
+              }
+            }
+          } catch (commitErr) {
+            console.warn('获取提交信息失败:', commitErr);
           }
-        ];
-        setBuilds(exampleBuilds);
-        setError('注意：这是示例数据。由于API限制，请点击"查看详情"前往GitHub获取实际构建。');
+
+          return {
+            id: run.id,
+            name: run.name || `构建 #${run.run_number}`,
+            number: run.run_number,
+            branch: run.head_branch || 'unknown',
+            date: new Date(run.created_at).toLocaleDateString(),
+            status: run.conclusion || 'pending',
+            downloadUrl: `https://github.com/8aka-Team/Invero/actions/runs/${run.id}`,
+            commitMessage,
+            commitSha: run.head_sha?.substring(0, 7) || 'unknown'
+          };
+        })
+      );
+
+      if (append) {
+        setBuilds(prev => [...prev, ...buildsWithCommits]);
+      } else {
+        setBuilds(buildsWithCommits);
+      }
+
+      // 检查是否还有更多数据
+      setHasMore(buildsWithCommits.length === 10);
+
+      if (buildsWithCommits.length === 0 && pageNum === 1) {
+        setError('未找到可用的构建。请访问 GitHub Actions 页面查看最新构建。');
       }
     } catch (err) {
       console.error('GitHub API请求失败:', err);
-      
-      // 备用方案：提供示例数据和指引
-      const exampleBuilds = [
-        {
-          id: 'example1',
-          name: 'Plugin Build (示例)',
-          number: '41',
-          branch: 'main',
-          date: new Date().toLocaleDateString(),
-          status: 'success',
-          downloadUrl: 'https://github.com/8aka-Team/Invero/actions'
-        },
-        {
-          id: 'example2',
-          name: 'Plugin Build (示例)',
-          number: '40',
-          branch: 'dev',
-          date: new Date().toLocaleDateString(),
-          status: 'success',
-          downloadUrl: 'https://github.com/8aka-Team/Invero/actions'
-        }
-      ];
-      setBuilds(exampleBuilds);
-      setError('由于GitHub API限制，无法获取实时数据。请点击"查看详情"前往GitHub获取最新构建。');
+
+      if (pageNum === 1) {
+        setError('无法获取构建数据。请检查网络连接或访问 GitHub Actions 页面查看最新构建。');
+      }
     } finally {
-      setIsLoading(false);
+      if (pageNum === 1) {
+        setIsLoading(false);
+      } else {
+        setIsLoadingMore(false);
+      }
+    }
+  };
+
+  const loadMore = () => {
+    if (!isLoadingMore && hasMore) {
+      const nextPage = page + 1;
+      setPage(nextPage);
+      fetchBuilds(nextPage, true);
     }
   };
 
   useEffect(() => {
-    if (expanded) {
-      fetchBuilds();
-    }
-  }, [expanded]);
+    fetchBuilds();
+  }, []);
+
+  if (isLoading) {
+    return <LoadingState />;
+  }
+
+  if (error && builds.length === 0) {
+    return <ErrorState error={error} />;
+  }
+
+  if (builds.length === 0) {
+    return <EmptyState />;
+  }
 
   return (
-    <div className={styles.devBuildCard}>
-      <div className={styles.devBuildContent}>
-        <div className={styles.devBuildHeader}>
-          <div className={styles.devBuildIcon}>
-            <BuildIcon />
-          </div>
-          <div className={styles.devBuildTitle}>
-            <Translate>开发版构建</Translate>
-          </div>
-        </div>
-        <p className={styles.devBuildDescription}>
-          <Translate>
-            如果你需要最新的开发版构建，可以访问我们的 GitHub Actions 页面获取最新构建。
-            开发版包含最新功能，但可能存在稳定性问题。
-          </Translate>
-        </p>
-        
-        {!expanded ? (
-          <button 
-            className={styles.actionButton}
-            onClick={() => setExpanded(true)}
-          >
-            <Translate>查看最近构建</Translate>
-            <ArrowRightIcon className={styles.actionButtonIcon} />
-          </button>
-        ) : (
-          <div className={styles.devBuildList}>
-            <div className={styles.devBuildListHeader}>
-              <h3 className={styles.devBuildListTitle}>
-                <Translate>最近的构建</Translate>
-              </h3>
-              <button 
-                className={styles.refreshButton}
-                onClick={fetchBuilds}
-                disabled={isLoading}
-              >
-                <RefreshIcon className={clsx(styles.refreshIcon, isLoading && styles.rotating)} />
-              </button>
-            </div>
-            
-            {isLoading ? (
-              <div className={styles.devBuildLoading}>
-                <LoadingSpinnerIcon />
-                <p><Translate>正在获取构建信息...</Translate></p>
-              </div>
-            ) : error ? (
-              <div className={styles.devBuildWarning}>
-                <div className={styles.buildsContainer}>
-                  {builds.map(build => (
-                    <div key={build.id} className={styles.buildItem}>
-                      <div className={styles.buildHeader}>
-                        <div className={styles.buildInfo}>
-                          <div className={styles.buildName}>
-                            {build.name} #{build.number}
-                          </div>
-                          <div className={styles.buildMeta}>
-                            <span className={styles.buildBranch}>{build.branch}</span>
-                            <span className={styles.buildDate}>
-                              <CalendarIcon className={styles.buildDateIcon} />
-                              {build.date}
-                            </span>
-                            {build.status && (
-                              <span className={clsx(
-                                styles.buildStatus,
-                                build.status === 'success' ? styles.buildStatusSuccess : 
-                                build.status === 'failure' ? styles.buildStatusFailure : 
-                                styles.buildStatusPending
-                              )}>
-                                {build.status === 'success' ? '构建成功' : 
-                                 build.status === 'failure' ? '构建失败' : 
-                                 '进行中'}
-                              </span>
-                            )}
-                          </div>
-                        </div>
-                      </div>
-                      <div className={styles.buildActions}>
-                        <a 
-                          href={build.downloadUrl}
-                          className={styles.buildViewLink}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-                          <Translate>查看详情</Translate>
-                        </a>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-                <div className={styles.errorMessage}>
-                  <ErrorIcon className={styles.warningIcon} />
-                  <p>{error}</p>
-                </div>
-              </div>
-            ) : builds.length === 0 ? (
-              <div className={styles.devBuildEmpty}>
-                <EmptyIcon className={styles.devBuildEmptyIcon} />
-                <p><Translate>暂无可用构建信息</Translate></p>
-              </div>
-            ) : (
-              <div className={styles.buildsContainer}>
-                {builds.map(build => (
-                  <div key={build.id} className={styles.buildItem}>
-                    <div className={styles.buildHeader}>
-                      <div className={styles.buildInfo}>
-                        <div className={styles.buildName}>
-                          {build.name} #{build.number}
-                        </div>
-                        <div className={styles.buildMeta}>
-                          <span className={styles.buildBranch}>{build.branch}</span>
-                          <span className={styles.buildDate}>
-                            <CalendarIcon className={styles.buildDateIcon} />
-                            {build.date}
-                          </span>
-                          {build.status && (
-                            <span className={clsx(
-                              styles.buildStatus,
-                              build.status === 'success' ? styles.buildStatusSuccess : 
-                              build.status === 'failure' ? styles.buildStatusFailure : 
-                              styles.buildStatusPending
-                            )}>
-                              {build.status === 'success' ? '构建成功' : 
-                               build.status === 'failure' ? '构建失败' : 
-                               '进行中'}
-                            </span>
-          )}
-        </div>
+    <div className={styles.buildGridContainer}>
+      <div className={styles.releaseGrid}>
+        {builds.map(build => (
+          <BuildCard key={build.id} build={build} />
+        ))}
       </div>
-                    </div>
-                    <div className={styles.buildActions}>
-                      <a 
-                        href={build.downloadUrl}
-                        className={styles.buildDownloadButton}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <DownloadIcon className={styles.buildDownloadIcon} />
-                        <Translate>下载构建</Translate>
-                      </a>
-                      <a 
-                        href={`https://github.com/8aka-Team/Invero/actions/runs/${build.id}`}
-                        className={styles.buildViewLink}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <Translate>查看详情</Translate>
-                      </a>
-                    </div>
-                  </div>
-                ))}
+
+      {error && (
+        <div className={styles.buildWarning}>
+          <ErrorIcon className={styles.warningIcon} />
+          <p>{error}</p>
+        </div>
+      )}
+
+      {hasMore && !isLoading && (
+        <div className={styles.loadMoreContainer}>
+          <button
+            className={styles.loadMoreButton}
+            onClick={loadMore}
+            disabled={isLoadingMore}
+          >
+            {isLoadingMore ? (
+              <>
+                <div className={styles.loadingSpinner}></div>
+                <Translate>加载中...</Translate>
+              </>
+            ) : (
+              <Translate>加载更多构建</Translate>
+            )}
+          </button>
+        </div>
+      )}
+    </div>
+  );
+}
+
+// 移动端开发版构建列表组件
+function DevelopmentBuildList() {
+  const [builds, setBuilds] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [isLoadingMore, setIsLoadingMore] = useState(false);
+  const [error, setError] = useState(null);
+  const [page, setPage] = useState(1);
+  const [hasMore, setHasMore] = useState(true);
+
+  const fetchBuilds = async (pageNum = 1, append = false) => {
+    if (pageNum === 1) {
+      setIsLoading(true);
+    } else {
+      setIsLoadingMore(true);
+    }
+    setError(null);
+
+    try {
+      // 获取构建信息
+      const response = await fetch(`https://api.github.com/repos/8aka-Team/Invero/actions/runs?per_page=20&page=${pageNum}`);
+
+      if (!response.ok) {
+        throw new Error('获取GitHub Actions数据失败');
+      }
+
+      const data = await response.json();
+
+      // 过滤出工作流名称包含"Plugin Build"的构建
+      const pluginBuilds = data.workflow_runs
+        .filter(run => run.name && run.name.includes('Plugin Build'))
+        .slice(0, 10);
+
+      // 获取每个构建的提交信息
+      const buildsWithCommits = await Promise.all(
+        pluginBuilds.map(async (run) => {
+          let commitMessage = '获取提交信息失败';
+          try {
+            // 获取提交信息
+            const commitResponse = await fetch(`https://api.github.com/repos/8aka-Team/Invero/commits/${run.head_sha}`);
+            if (commitResponse.ok) {
+              const commitData = await commitResponse.json();
+              commitMessage = commitData.commit.message.split('\n')[0]; // 只取第一行
+
+            }
+          } catch (commitErr) {
+            console.warn('获取提交信息失败:', commitErr);
+          }
+
+          return {
+            id: run.id,
+            name: run.name || `构建 #${run.run_number}`,
+            number: run.run_number,
+            branch: run.head_branch || 'unknown',
+            date: new Date(run.created_at).toLocaleDateString(),
+            status: run.conclusion || 'pending',
+            downloadUrl: `https://github.com/8aka-Team/Invero/actions/runs/${run.id}`,
+            commitMessage,
+            commitSha: run.head_sha?.substring(0, 7) || 'unknown'
+          };
+        })
+      );
+
+      if (append) {
+        setBuilds(prev => [...prev, ...buildsWithCommits]);
+      } else {
+        setBuilds(buildsWithCommits);
+      }
+
+      // 检查是否还有更多数据
+      setHasMore(buildsWithCommits.length === 10);
+
+      if (buildsWithCommits.length === 0 && pageNum === 1) {
+        setError('未找到可用的构建。请访问 GitHub Actions 页面查看最新构建。');
+      }
+    } catch (err) {
+      console.error('GitHub API请求失败:', err);
+
+      if (pageNum === 1) {
+        setError('无法获取构建数据。请检查网络连接或访问 GitHub Actions 页面查看最新构建。');
+      }
+    } finally {
+      if (pageNum === 1) {
+        setIsLoading(false);
+      } else {
+        setIsLoadingMore(false);
+      }
+    }
+  };
+
+  const loadMore = () => {
+    if (!isLoadingMore && hasMore) {
+      const nextPage = page + 1;
+      setPage(nextPage);
+      fetchBuilds(nextPage, true);
+    }
+  };
+
+  useEffect(() => {
+    fetchBuilds();
+  }, []);
+
+  if (isLoading) {
+    return <LoadingState />;
+  }
+
+  if (error && builds.length === 0) {
+    return <ErrorState error={error} />;
+  }
+
+  if (builds.length === 0) {
+    return <EmptyState />;
+  }
+
+  return (
+    <div className={styles.buildListContainer}>
+      <div className={styles.releaseList}>
+        {builds.map(build => (
+          <BuildCard key={build.id} build={build} />
+        ))}
+      </div>
+
+      {error && (
+        <div className={styles.buildWarning}>
+          <ErrorIcon className={styles.warningIcon} />
+          <p>{error}</p>
+        </div>
+      )}
+
+      {hasMore && !isLoading && (
+        <div className={styles.loadMoreContainer}>
+          <button
+            className={styles.loadMoreButton}
+            onClick={loadMore}
+            disabled={isLoadingMore}
+          >
+            {isLoadingMore ? (
+              <>
+                <div className={styles.loadingSpinner}></div>
+                <Translate>加载中...</Translate>
+              </>
+            ) : (
+              <Translate>加载更多构建</Translate>
+            )}
+          </button>
+        </div>
+      )}
+    </div>
+  );
+}
+
+// 构建卡片组件，类似于ReleaseCard
+function BuildCard({ build }) {
+  return (
+    <div className={styles.releaseCard}>
+      <div className={styles.releaseHead}>
+        <div className={styles.releaseDetails}>
+          <div className={styles.releaseName}>
+            {build.name} #{build.number}
+          </div>
+          <div className={styles.releaseInfo}>
+            <div className={styles.releaseDate}>
+              <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" className={styles.releaseDateIcon}>
+                <path d="M6 5V1M14 5V1M5 9H15M19 7V19C19 20.1046 18.1046 21 17 21H3C1.89543 21 1 20.1046 1 19V7C1 5.89543 1.89543 5 3 5H17C18.1046 5 19 5.89543 19 7Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+              {build.date}
+            </div>
+            <div className={styles.buildBranch}>
+              分支: {build.branch}
+            </div>
+            {build.status && (
+              <div className={clsx(
+                styles.buildStatus,
+                build.status === 'success' ? styles.buildStatusSuccess :
+                  build.status === 'failure' ? styles.buildStatusFailure :
+                    styles.buildStatusPending
+              )}>
+                {build.status === 'success' ? '构建成功' :
+                  build.status === 'failure' ? '构建失败' :
+                    '进行中'}
               </div>
             )}
-            
-            <div className={styles.devBuildFooter}>
-              <a 
-                href="https://github.com/8aka-Team/Invero/actions"
-                className={styles.viewAllButton}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-                <Translate>查看所有构建</Translate>
-                <ArrowRightIcon className={styles.viewAllButtonIcon} />
-        </a>
+          </div>
+        </div>
+        <div className={styles.releaseActions}>
+          <a
+            href={build.downloadUrl}
+            className={styles.viewDetailsLink}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Translate>查看详情</Translate>
+          </a>
+        </div>
+      </div>
+
+      <div className={styles.releaseFiles}>
+        <div className={styles.buildNote}>
+          <div className={styles.buildNoteIcon}>
+            <BuildIcon />
+          </div>
+          <div className={styles.buildNoteContent}>
+            <div className={styles.buildNoteTitle}>
+              <Translate>开发版构建</Translate>
+            </div>
+            <div className={styles.buildNoteDesc}>
+              {build.commitMessage ? (
+                <span>
+                  <strong>{build.commitSha}</strong>: {build.commitMessage}
+                </span>
+              ) : (
+                <Translate>包含最新代码更改，点击获取构建产物</Translate>
+              )}
             </div>
           </div>
-        )}
+          <a
+            href={build.downloadUrl}
+            className={styles.buildDownloadButton}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <DownloadIcon className={styles.buildDownloadIcon} />
+            <Translate>获取构建</Translate>
+          </a>
+        </div>
       </div>
     </div>
   );
@@ -442,6 +738,21 @@ function VersionToggle({ activeVersion, setActiveVersion }) {
           </div>
           <div className={styles.versionText}>
             <Translate>预览版</Translate>
+          </div>
+        </div>
+      </button>
+      <button
+        className={clsx(styles.versionButton, activeVersion === 'dev' && styles.activeVersion)}
+        onClick={() => setActiveVersion('dev')}
+      >
+        <div className={styles.versionButtonContent}>
+          <div className={styles.versionButtonIcon}>
+            <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M10 2L13 7H17L13.5 10.5L15 16L10 13L5 16L6.5 10.5L3 7H7L10 2Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </div>
+          <div className={styles.versionText}>
+            <Translate>开发版构建</Translate>
           </div>
         </div>
       </button>
@@ -492,17 +803,17 @@ function ErrorState({ error }) {
       </h3>
       <p className={styles.errorMessage}>{error}</p>
       <div className={styles.errorAction}>
-      <a 
-        href="https://github.com/8aka-Team/Invero/releases"
+        <a
+          href="https://github.com/8aka-Team/Invero/releases"
           className={styles.actionButton}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <Translate>前往 GitHub Releases 页面</Translate>
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Translate>前往 GitHub Releases 页面</Translate>
           <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" className={styles.actionButtonIcon}>
             <path d="M5 10H15M15 10L10 5M15 10L10 15" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
-      </a>
+        </a>
       </div>
     </div>
   );
@@ -526,19 +837,126 @@ function EmptyState() {
         </Translate>
       </p>
       <div className={styles.emptyAction}>
-      <a 
-        href="https://github.com/8aka-Team/Invero"
+        <a
+          href="https://github.com/8aka-Team/Invero"
           className={styles.actionButton}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <Translate>访问 GitHub 仓库</Translate>
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Translate>访问 GitHub 仓库</Translate>
           <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" className={styles.actionButtonIcon}>
             <path d="M5 10H15M15 10L10 5M15 10L10 15" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
-      </a>
+        </a>
+      </div>
     </div>
-    </div>
+  );
+}
+
+// 移动端下载内容区域
+function MobileDownloadContent({ activeVersion, setActiveVersion, releases, isLoading, error }) {
+  // 筛选版本
+  const filteredReleases = releases.filter(release => {
+    if (activeVersion === 'all') return true;
+    if (activeVersion === 'stable') return !release.prerelease;
+    if (activeVersion === 'preview') return release.prerelease;
+    if (activeVersion === 'dev') return false; // 开发版构建不显示release列表
+    return true;
+  });
+
+  return (
+    <section style={{ padding: '2rem 1rem', background: 'var(--ifm-background-surface-color)' }}>
+      <div style={{ maxWidth: '600px', margin: '0 auto' }}>
+        <div className={styles.cardsHeader}>
+          <h3 className={styles.cardsTitle}>
+            <Translate>版本发布</Translate>
+          </h3>
+          <div className={styles.cardsTitleLine}></div>
+        </div>
+
+        <VersionToggle
+          activeVersion={activeVersion}
+          setActiveVersion={setActiveVersion}
+        />
+
+        {activeVersion === 'stable' && (
+          <p className={styles.versionDescription}>
+            <Translate>稳定版本经过全面测试，适合用于生产环境</Translate>
+          </p>
+        )}
+        {activeVersion === 'preview' && (
+          <p className={styles.versionDescription}>
+            <Translate>预览版本包含最新功能，但可能存在稳定性问题</Translate>
+          </p>
+        )}
+        {activeVersion === 'dev' && (
+          <p className={styles.versionDescription}>
+            <Translate>开发版构建包含最新的代码更改，适合开发者测试新功能</Translate>
+          </p>
+        )}
+        {activeVersion === 'all' && (
+          <p className={styles.versionDescription}>
+            <Translate>查看所有可用的版本，包括稳定版和预览版</Translate>
+          </p>
+        )}
+
+        {activeVersion === 'dev' ? (
+          <DevelopmentBuildList />
+        ) : isLoading ? (
+          <LoadingState />
+        ) : error ? (
+          <ErrorState error={error} />
+        ) : filteredReleases.length === 0 ? (
+          <EmptyState />
+        ) : (
+          <div className={styles.releaseList}>
+            {filteredReleases.map(release => (
+              <ReleaseCard key={release.id} release={release} />
+            ))}
+          </div>
+        )}
+      </div>
+    </section>
+  );
+}
+
+// 响应式Hero组件
+function ResponsiveHeroSection({ activeVersion, setActiveVersion, releases, isLoading, error }) {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkIsMobile = () => {
+      setIsMobile(window.innerWidth <= 1024);
+    };
+
+    checkIsMobile();
+    window.addEventListener('resize', checkIsMobile);
+    return () => window.removeEventListener('resize', checkIsMobile);
+  }, []);
+
+  if (isMobile) {
+    return (
+      <>
+        <MobileHeroSection />
+        <MobileDownloadContent
+          activeVersion={activeVersion}
+          setActiveVersion={setActiveVersion}
+          releases={releases}
+          isLoading={isLoading}
+          error={error}
+        />
+      </>
+    );
+  }
+
+  return (
+    <DesktopHeroSection
+      activeVersion={activeVersion}
+      setActiveVersion={setActiveVersion}
+      releases={releases}
+      isLoading={isLoading}
+      error={error}
+    />
   );
 }
 
@@ -568,16 +986,6 @@ export default function DownloadPage() {
       });
   }, []);
 
-  const { siteConfig } = useDocusaurusContext();
-  
-  // 筛选版本
-  const filteredReleases = releases.filter(release => {
-    if (activeVersion === 'all') return true;
-    if (activeVersion === 'stable') return !release.prerelease;
-    if (activeVersion === 'preview') return release.prerelease;
-    return true;
-  });
-
   return (
     <Layout
       title={translate({
@@ -588,56 +996,14 @@ export default function DownloadPage() {
         id: 'page.download.description',
         message: '下载 Invero Minecraft GUI 插件的最新版本',
       })}>
-      
-        <Banner />
-        
-      <div className={styles.downloadContainer}>
-        <div className={styles.downloadContent}>
-          <div className={styles.downloadHeader}>
-            <h2 className={styles.downloadTitle}>
-              <Translate>版本发布</Translate>
-            </h2>
-            <VersionToggle 
-              activeVersion={activeVersion}
-              setActiveVersion={setActiveVersion}
-            />
-          </div>
-          
-          <div className={styles.downloadVersionDesc}>
-            {activeVersion === 'stable' && (
-              <p className={styles.versionDescription}>
-                <Translate>稳定版本经过全面测试，适合用于生产环境</Translate>
-              </p>
-            )}
-            {activeVersion === 'preview' && (
-              <p className={styles.versionDescription}>
-                <Translate>预览版本包含最新功能，但可能存在稳定性问题</Translate>
-              </p>
-            )}
-            {activeVersion === 'all' && (
-              <p className={styles.versionDescription}>
-                <Translate>查看所有可用的版本，包括稳定版和预览版</Translate>
-              </p>
-            )}
-          </div>
-          
-          {isLoading ? (
-            <LoadingState />
-          ) : error ? (
-            <ErrorState error={error} />
-          ) : filteredReleases.length === 0 ? (
-            <EmptyState />
-          ) : (
-            <div className={styles.releaseList}>
-              {filteredReleases.map(release => (
-                <ReleaseCard key={release.id} release={release} />
-              ))}
-            </div>
-          )}
-          
-          <DevelopmentBuildCard />
-        </div>
-      </div>
+
+      <ResponsiveHeroSection
+        activeVersion={activeVersion}
+        setActiveVersion={setActiveVersion}
+        releases={releases}
+        isLoading={isLoading}
+        error={error}
+      />
     </Layout>
   );
-} 
+}
