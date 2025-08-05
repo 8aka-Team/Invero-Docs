@@ -4,15 +4,15 @@
     "description": "The title in the navbar"
   },
   "item.label.文档": {
-    "message": "文档",
+    "message": "Documentation",
     "description": "Navbar item with label 文档"
   },
   "item.label.博客": {
-    "message": "博客",
+    "message": "Blog",
     "description": "Navbar item with label 博客"
   },
   "item.label.下载": {
-    "message": "下载",
+    "message": "Download",
     "description": "Navbar item with label 下载"
   },
   "logo.alt": {

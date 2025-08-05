@@ -1,8 +1,9 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
-const lightCodeTheme = require('prism-react-renderer/themes/github');
-const darkCodeTheme = require('prism-react-renderer/themes/dracula');
+const { themes } = require('prism-react-renderer');
+const lightCodeTheme = themes.github;
+const darkCodeTheme = themes.dracula;
 
 const IS_CHINA_SITE = process.env.CHINA === 'true';
 const ICP_LICENSE = process.env.ICP_LICENSE;
@@ -13,8 +14,8 @@ const config = {
     future: {
         v4: true,
         experimental_faster: {
-            rspackBundler: true, // required flag
-            rspackPersistentCache: true, // new flag
+            rspackBundler: true,
+            rspackPersistentCache: true,
         },
     },
     title: 'Invero',
@@ -30,7 +31,19 @@ const config = {
 
     i18n: {
         defaultLocale: 'zh-CN',
-        locales: ['zh-CN'],
+        locales: ['zh-CN', 'en'],
+        localeConfigs: {
+            'zh-CN': {
+                label: '简体中文',
+                direction: 'ltr',
+                htmlLang: 'zh-CN',
+            },
+            'en': {
+                label: 'English',
+                direction: 'ltr',
+                htmlLang: 'en-US',
+            },
+        },
     },
     clientModules: [
         require.resolve('./src/clientModules/routeModules.js'),
@@ -50,7 +63,8 @@ const config = {
             /** @type {import('@docusaurus/preset-classic').Options} */
             ({
                 docs: {
-                    sidebarPath: require.resolve('./sidebars.js')
+                    sidebarPath: require.resolve('./sidebars.js'),
+                    routeBasePath: 'docs',
                 },
                 blog: {
                     showReadingTime: true
@@ -63,7 +77,7 @@ const config = {
     ],
 
     themeConfig:
-    /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
+        /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
         ({
             giscus: {
                 repo: '8aka-Team/Invero-Docs',
@@ -86,20 +100,25 @@ const config = {
                 },
                 items: [
                     {
-                        label: '文档',
                         type: 'doc',
                         docId: 'about',
                         position: 'left',
+                        label: '文档',
                     },
                     {
                         to: '/blog/',
+                        position: 'left',
                         label: '博客',
-                        position: 'left'
                     },
                     {
                         to: '/download/',
-                        label: '下载',
                         position: 'left',
+                        label: '下载',
+                    },
+                    {
+                        type: 'localeDropdown',
+                        position: 'right',
+                        className: 'header-locale-link',
                     },
                     {
                         href: 'https://github.com/8aka-Team/Invero',
@@ -153,12 +172,11 @@ const config = {
 
     themes: [
         [
-            require.resolve("@easyops-cn/docusaurus-search-local"),
-            /** @type {import("@easyops-cn/docusaurus-search-local").PluginOptions} */
-            ({
+            "@easyops-cn/docusaurus-search-local",
+            {
                 hashed: true,
                 language: ["en", "zh"],
-            }),
+            },
         ],
     ],
     plugins: [

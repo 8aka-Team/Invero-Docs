@@ -1,0 +1,54 @@
+{
+  "version.label": {
+    "message": "Next",
+    "description": "The label for version current"
+  },
+  "sidebar.tutorialSidebar.category.开始": {
+    "message": "Start",
+    "description": "The label for category 开始 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.入门": {
+    "message": "Getting Started",
+    "description": "The label for category 入门 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.菜单": {
+    "message": "Menu",
+    "description": "The label for category 菜单 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.图标": {
+    "message": "Icon",
+    "description": "The label for category 图标 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.脚本": {
+    "message": "Kether",
+    "description": "The label for category 脚本 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.进阶": {
+    "message": "Advanced",
+    "description": "The label for category 进阶 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.基础": {
+    "message": "Basic",
+    "description": "The label for category 基础 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.面板": {
+    "message": "Panels",
+    "description": "The label for category 面板 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.兼容": {
+    "message": "Compatibility",
+    "description": "The label for category 兼容 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.迁移": {
+    "message": "Migration",
+    "description": "The label for category 迁移 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.开发者": {
+    "message": "Develop",
+    "description": "The label for category 开发者 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.接口": {
+    "message": "Interface",
+    "description": "The label for category 接口 in sidebar tutorialSidebar"
+  }
+}
