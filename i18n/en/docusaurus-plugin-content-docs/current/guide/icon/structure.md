@@ -69,6 +69,7 @@ Please note that except for declaring the material of the root node which is nec
 | **NeigeItems**   | ni      | NeigeItems plugin support    |
 | **Nexo**         | -       | Nexo plugin support          |
 | **oraxen**       | -       | Oraxen plugin support        |
+| **ratziel**      | -       | Ratziel plugin support       |
 | **SX-Item**      | si      | SX-Item plugin support       |
 | **Slimefun**     | sf      | Slimefun plugin support      |
 | **zaphkiel**     | zap     | Zaphkiel plugin support      |
