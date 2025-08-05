@@ -72,6 +72,7 @@ The application logic of variable identifiers is to parse the return value of th
 | **NeigeItems**   | ni      | NeigeItems plugin support    |
 | **nexo**         | -       | Nexo plugin support          |
 | **oraxen**       | -       | Oraxen plugin support        |
+| **ratziel**      | -       | Ratziel plugin support       |
 | **sxitem**       | si      | SX-Item plugin support       |
 | **slimefun**     | sf      | Slimefun plugin support      |
 | **zaphkiel**     | zap     | Zaphkiel plugin support      |
