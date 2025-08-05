@@ -6,6 +6,9 @@
   --primary-hue: 180;
   --primary-sat: 46%;
 
+  /* 导航栏高度 */
+  --ifm-navbar-height: 4rem;
+
   /* 主色系 */
   --ifm-color-primary: #3A9F9F;
   --ifm-color-primary-dark: #339090;
@@ -218,7 +221,8 @@ a:hover {
 
 /* 导航栏 */
 .navbar {
-  height: 4rem;
+  --ifm-navbar-height: 4rem;
+  height: var(--ifm-navbar-height);
   padding: 0 var(--space-lg);
   background-color: var(--ifm-navbar-background-color);
   backdrop-filter: blur(12px);
@@ -1422,7 +1426,8 @@ tr:hover {
 
 @media (max-width: 768px) {
   .navbar {
-    height: 3.5rem;
+    --ifm-navbar-height: 3.5rem;
+    height: var(--ifm-navbar-height);
   }
 
   .navbar__logo {

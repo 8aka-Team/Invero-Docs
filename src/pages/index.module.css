@@ -24,8 +24,8 @@
 
 /*  满屏Hero区域  */
 .hero {
-  /* 修复页脚被遮盖问题：使用固定高度但为页脚留出空间 */
-  height: calc(100vh - var(--ifm-navbar-height) - 320px);
+  /* 使用完整视窗高度减去导航栏高度 */
+  height: calc(100vh - var(--ifm-navbar-height));
   width: 100vw;
   position: relative;
   background: var(--ifm-background-color);
