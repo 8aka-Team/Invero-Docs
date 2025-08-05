@@ -72,6 +72,7 @@ head: '<头颅标识符>'
 | **NeigeItems**   | ni     | NeigeItems 插件支持      |
 | **nexo**         | -      | Nexo 插件支持            |
 | **oraxen**       | -      | Oraxen 插件支持          |
+| **ratziel**      | -      | Ratziel 插件支持         |
 | **sxitem**       | si     | SX-Item 插件支持         |
 | **slimefun**     | sf     | Slimefun 插件支持        |
 | **zaphkiel**     | zap    | Zaphkiel 插件支持        |
@@ -166,6 +167,12 @@ value:后面跟物品ID，也可以加指向数据，比如 `value: ExampleItem 
 
 ```yaml
 oraxen: custom_item
+```
+
+- Ratziel
+
+```yaml
+ratziel: custom_item
 ```
 
 - SX-Item

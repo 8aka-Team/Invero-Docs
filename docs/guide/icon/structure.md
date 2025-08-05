@@ -69,6 +69,7 @@ sidebar_position: 1
 | **NeigeItems**   | ni     | NeigeItems 插件支持      |
 | **Nexo**         | -      | Nexo 插件支持            |
 | **oraxen**       | -      | Oraxen 插件支持          |
+| **ratziel**      | -      | Ratziel 插件支持         |
 | **SX-Item**      | si     | SX-Item 插件支持         |
 | **Slimefun**     | sf     | Slimefun 插件支持        |
 | **zaphkiel**     | zap    | Zaphkiel 插件支持        |
