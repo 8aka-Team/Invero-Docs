@@ -631,9 +631,15 @@
 .cardDescription {
   font-size: 0.9rem;
   line-height: 1.5;
-  color: var(--ifm-font-color-secondary);
+  color: var(--ifm-font-color-secondary) !important;
   margin: 0;
   opacity: 0.8;
+}
+
+/* text--truncate不覆盖颜色 */
+:global(.text--truncate).cardDescription,
+.cardDescription:global(.text--truncate) {
+  color: var(--ifm-font-color-secondary) !important;
 }
 
 .cardBorder {

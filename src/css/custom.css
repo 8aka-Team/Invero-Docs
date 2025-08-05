@@ -623,8 +623,9 @@ a:hover {
 }
 
 .menu__link:hover {
-  background-color: var(--color-gray-50);
+  background-color: hsla(var(--primary-hue), var(--primary-sat), 45%, 0.08);
   color: var(--ifm-color-primary);
+  text-decoration: none;
 }
 
 .menu__link--active {
@@ -638,6 +639,15 @@ a:hover {
   margin-left: 0.75rem;
   padding-left: 0.75rem;
   border-left: 1px solid var(--border-color-light);
+}
+
+/* 统一菜单hover效果 */
+.theme-doc-sidebar-container .menu__link:hover,
+.navbar-sidebar .menu__link:hover,
+.menu .menu__link:hover {
+  background-color: hsla(var(--primary-hue), var(--primary-sat), 45%, 0.08);
+  color: var(--ifm-color-primary);
+  text-decoration: none;
 }
 
 
@@ -1704,6 +1714,11 @@ div[class*="banner"] {
 /* 移除侧边栏折叠按钮背景 */
 .menu__caret {
   background: none !important;
+}
+
+/* 确保卡片描述文字为灰色 */
+.text--truncate[class*="cardDescription"] {
+  color: var(--ifm-font-color-secondary) !important;
 }
 
 /* 移动端导航栏和侧边栏样式修复 */
