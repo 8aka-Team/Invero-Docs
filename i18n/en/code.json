@@ -530,5 +530,17 @@
   "theme.tags.tagsPageTitle": {
     "message": "Tags",
     "description": "The title of the tag list page"
+  },
+  "download.error.noBuildsFound": {
+    "message": "No builds found. Please visit the GitHub Actions page to view the latest builds.",
+    "description": "Error message when no builds are found"
+  },
+  "download.error.fetchBuildsFailed": {
+    "message": "Unable to fetch build data. Please check your network connection or visit the GitHub Actions page to view the latest builds.",
+    "description": "Error message when fetching builds fails"
+  },
+  "download.error.githubApiFailed": {
+    "message": "GitHub API request failed: {status}",
+    "description": "Error message when GitHub API request fails"
   }
 }

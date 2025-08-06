@@ -124,6 +124,8 @@ const config = {
                         href: 'https://github.com/8aka-Team/Invero',
                         position: 'right',
                         className: 'header-github-link',
+                        label: 'GitHub',
+                        'aria-label': 'GitHub repository',
                     },
                 ],
             },
@@ -150,6 +152,10 @@ const config = {
                                 label: 'GitHub',
                                 href: 'https://github.com/8aka-Team/Invero-Docs',
                             },
+                            {
+                                label: 'Lythrilla个人主页',
+                                href: 'https://lythrilla.cn',
+                            },
                         ],
                     },
                     {
@@ -159,10 +165,14 @@ const config = {
                                 label: 'QQ 群',
                                 href: 'https://qm.qq.com/q/dENGavSflK',
                             },
+                            {
+                                label: 'Discord',
+                                href: 'https://discord.com/invite/jN4Br8uhSS',
+                            },
                         ],
                     },
                 ],
-                copyright: `Copyright © ${new Date().getFullYear()} <b>8aka-Team</b>, All Rights Reserved.`,
+                copyright: `Copyright © ${new Date().getFullYear()} <b>8aka-Team</b>, All Rights Reserved. | <a href="https://lythrilla.cn" target="_blank" rel="noopener noreferrer">Lythrilla网页设计</a>`,
             },
             prism: {
                 theme: lightCodeTheme,

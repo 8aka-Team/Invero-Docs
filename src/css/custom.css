@@ -6,6 +6,9 @@
   --primary-hue: 180;
   --primary-sat: 46%;
 
+  /* 导航栏高度 */
+  --ifm-navbar-height: 4rem;
+
   /* 主色系 */
   --ifm-color-primary: #3A9F9F;
   --ifm-color-primary-dark: #339090;
@@ -218,7 +221,8 @@ a:hover {
 
 /* 导航栏 */
 .navbar {
-  height: 4rem;
+  --ifm-navbar-height: 4rem;
+  height: var(--ifm-navbar-height);
   padding: 0 var(--space-lg);
   background-color: var(--ifm-navbar-background-color);
   backdrop-filter: blur(12px);
@@ -286,7 +290,7 @@ a:hover {
   box-shadow: 0 0 0 2px hsla(var(--primary-hue), var(--primary-sat), 45%, 0.1);
 }
 
-/* GitHub 链接 */
+/* GitHub 链接 - 桌面端保持图标样式 */
 .header-github-link {
   display: flex;
   align-items: center;
@@ -299,9 +303,19 @@ a:hover {
   border: none;
   padding: 0;
   text-decoration: none;
+  /* 桌面端隐藏文字，只显示图标 */
+  font-size: 0 !important;
+  text-indent: -9999px !important;
+  overflow: hidden !important;
 }
 
-
+/* 隐藏桌面端的外部链接图标 */
+.header-github-link svg,
+.header-github-link .iconExternalLink_Gmhe {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+}
 
 .header-github-link::before {
   content: '';
@@ -310,6 +324,11 @@ a:hover {
   display: block;
   background: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23475569' d='M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12'/%3E%3C/svg%3E") no-repeat;
   background-size: contain;
+  text-indent: 0 !important;
+  position: static !important;
+  left: auto !important;
+  visibility: visible !important;
+  opacity: 1 !important;
 }
 
 [data-theme='dark'] .header-github-link::before {
@@ -604,8 +623,9 @@ a:hover {
 }
 
 .menu__link:hover {
-  background-color: var(--color-gray-50);
+  background-color: hsla(var(--primary-hue), var(--primary-sat), 45%, 0.08);
   color: var(--ifm-color-primary);
+  text-decoration: none;
 }
 
 .menu__link--active {
@@ -619,6 +639,15 @@ a:hover {
   margin-left: 0.75rem;
   padding-left: 0.75rem;
   border-left: 1px solid var(--border-color-light);
+}
+
+/* 统一菜单hover效果 */
+.theme-doc-sidebar-container .menu__link:hover,
+.navbar-sidebar .menu__link:hover,
+.menu .menu__link:hover {
+  background-color: hsla(var(--primary-hue), var(--primary-sat), 45%, 0.08);
+  color: var(--ifm-color-primary);
+  text-decoration: none;
 }
 
 
@@ -1407,7 +1436,8 @@ tr:hover {
 
 @media (max-width: 768px) {
   .navbar {
-    height: 3.5rem;
+    --ifm-navbar-height: 3.5rem;
+    height: var(--ifm-navbar-height);
   }
 
   .navbar__logo {
@@ -1679,4 +1709,250 @@ div[class*="banner"] {
 .theme-doc-sidebar-container[class*="sidebar"] {
   background-color: var(--ifm-background-surface-color);
   border-right: 1px solid var(--border-color);
+}
+
+/* 移除侧边栏折叠按钮背景 */
+.menu__caret {
+  background: none !important;
+}
+
+/* 确保卡片描述文字为灰色 */
+.text--truncate[class*="cardDescription"] {
+  color: var(--ifm-font-color-secondary) !important;
+}
+
+/* 移动端导航栏和侧边栏样式修复 */
+@media (max-width: 996px) {
+
+  /* 移动端导航栏隐藏GitHub和语言切换按钮 */
+  .navbar__items--right .header-github-link,
+  .navbar__items--right .header-locale-link,
+  .navbar__items .header-github-link,
+  .navbar__items .header-locale-link {
+    display: none !important;
+  }
+
+  /* 移动端左侧边栏语言切换 - 超强力实现 */
+
+  /* 只隐藏语言切换的SVG图标 - 精确定位 */
+  .navbar-sidebar .navbar-sidebar__items .header-locale-link svg,
+  .navbar-sidebar .navbar-sidebar__items .header-locale-link .iconLanguage_gbUl,
+  .navbar-sidebar .navbar-sidebar__items a[class*="header-locale-link"] svg,
+  .navbar-sidebar .navbar-sidebar__items a[class*="header-locale-link"] .iconLanguage_gbUl {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    width: 0 !important;
+    height: 0 !important;
+    position: absolute !important;
+    left: -9999px !important;
+    z-index: -999 !important;
+  }
+
+  /* 只隐藏语言切换链接的子元素 */
+  .navbar-sidebar .navbar-sidebar__items .header-locale-link * {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+  }
+
+  /* 语言切换链接样式 - 只针对语言切换 */
+  .navbar-sidebar .navbar-sidebar__items .header-locale-link,
+  .navbar-sidebar .navbar-sidebar__items a[class*="header-locale-link"] {
+    padding: 0.5rem 0.75rem !important;
+    color: var(--ifm-menu-color) !important;
+    text-decoration: none !important;
+    border-radius: 6px !important;
+    transition: all 0.2s ease !important;
+    font-weight: 500 !important;
+    font-size: 0 !important;
+    /* 隐藏所有原有文字 */
+    margin: 0 0.25rem 1px 0.25rem !important;
+    display: block !important;
+    text-align: left !important;
+    background: transparent !important;
+    border: none !important;
+    position: relative !important;
+    overflow: hidden !important;
+    text-indent: -9999px !important;
+    line-height: 0 !important;
+  }
+
+  .navbar-sidebar .navbar-sidebar__items .header-locale-link:hover,
+  .navbar-sidebar .navbar-sidebar__items a[class*="header-locale-link"]:hover {
+    background-color: var(--color-gray-50) !important;
+    color: var(--ifm-color-primary) !important;
+    text-decoration: none !important;
+  }
+
+  /* 显示自定义文字 - 使用::before确保优先级 */
+  .navbar-sidebar .navbar-sidebar__items .header-locale-link::before,
+  .navbar-sidebar .navbar-sidebar__items a[class*="header-locale-link"]::before {
+    content: "Language";
+    font-size: 0.875rem !important;
+    font-weight: 500 !important;
+    display: block !important;
+    color: var(--ifm-menu-color) !important;
+    text-align: left !important;
+    text-indent: 0 !important;
+    position: absolute !important;
+    top: 50% !important;
+    left: 0.75rem !important;
+    transform: translateY(-50%) !important;
+    width: calc(100% - 1.5rem) !important;
+    line-height: 1.25 !important;
+    z-index: 999 !important;
+    background: transparent !important;
+  }
+
+  /* 中文环境显示"简体中文" */
+  html[lang="zh-CN"] .navbar-sidebar .navbar-sidebar__items .header-locale-link::before,
+  html[lang="zh-CN"] .navbar-sidebar .navbar-sidebar__items a[class*="header-locale-link"]::before {
+    content: "简体中文";
+  }
+
+  /* 英文环境显示"English" */
+  html[lang="en"] .navbar-sidebar .navbar-sidebar__items .header-locale-link::before,
+  html[lang="en"] .navbar-sidebar .navbar-sidebar__items a[class*="header-locale-link"]::before {
+    content: "English";
+  }
+
+  /* 超强力解决方案 - 直接替换包含"选择语言"的链接 */
+  .navbar-sidebar .navbar-sidebar__items a[class*="dropdownNavbarItemMobile"][class*="header-locale-link"] {
+    font-size: 0 !important;
+    text-indent: -9999px !important;
+    overflow: hidden !important;
+    position: relative !important;
+    padding: 0.5rem 0.75rem !important;
+    margin: 0 0.25rem 1px 0.25rem !important;
+    border-radius: 6px !important;
+    background: transparent !important;
+    color: var(--ifm-menu-color) !important;
+    display: block !important;
+  }
+
+  .navbar-sidebar .navbar-sidebar__items a[class*="dropdownNavbarItemMobile"][class*="header-locale-link"] * {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+  }
+
+  .navbar-sidebar .navbar-sidebar__items a[class*="dropdownNavbarItemMobile"][class*="header-locale-link"]::after {
+    content: "Language";
+    font-size: 0.875rem !important;
+    font-weight: 500 !important;
+    display: block !important;
+    color: var(--ifm-menu-color) !important;
+    text-align: left !important;
+    text-indent: 0 !important;
+    position: absolute !important;
+    top: 50% !important;
+    left: 0.75rem !important;
+    transform: translateY(-50%) !important;
+    width: calc(100% - 1.5rem) !important;
+    line-height: 1.25 !important;
+    z-index: 999 !important;
+  }
+
+  html[lang="zh-CN"] .navbar-sidebar .navbar-sidebar__items a[class*="dropdownNavbarItemMobile"][class*="header-locale-link"]::after {
+    content: "简体中文";
+  }
+
+  html[lang="en"] .navbar-sidebar .navbar-sidebar__items a[class*="dropdownNavbarItemMobile"][class*="header-locale-link"]::after {
+    content: "English";
+  }
+
+  /* 调整移动端侧边栏中语言切换的容器样式 */
+  .navbar-sidebar .navbar-sidebar__items .navbar__item.dropdown,
+  .navbar-sidebar .navbar-sidebar__items .menu__list-item-collapsible {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* 移动端左侧边栏GitHub链接样式 - 强制重置为标准菜单项 */
+  .navbar-sidebar .navbar-sidebar__items .header-github-link {
+    display: block !important;
+    padding: 0.5rem 0.75rem !important;
+    color: var(--ifm-menu-color) !important;
+    text-decoration: none !important;
+    border-radius: 6px !important;
+    transition: all 0.2s ease !important;
+    font-weight: 500 !important;
+    font-size: 0.875rem !important;
+    line-height: 1.25 !important;
+    margin: 0 0.25rem 1px 0.25rem !important;
+    background: transparent !important;
+    width: auto !important;
+    height: auto !important;
+    min-width: auto !important;
+    min-height: auto !important;
+    max-width: none !important;
+    max-height: none !important;
+    text-align: left !important;
+    white-space: nowrap !important;
+    overflow: visible !important;
+    text-indent: 0 !important;
+    letter-spacing: normal !important;
+    word-spacing: normal !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+  }
+
+  .navbar-sidebar .navbar-sidebar__items .header-github-link:hover {
+    background-color: var(--color-gray-50) !important;
+    color: var(--ifm-color-primary) !important;
+    text-decoration: none !important;
+  }
+
+  /* 强制移除GitHub链接的所有图标和符号 */
+  .navbar-sidebar .navbar-sidebar__items .header-github-link::before,
+  .navbar-sidebar .navbar-sidebar__items .header-github-link *,
+  .navbar-sidebar .navbar-sidebar__items .header-github-link svg {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    width: 0 !important;
+    height: 0 !important;
+  }
+}
+
+/* 针对更小屏幕的强制隐藏规则 - 只隐藏导航栏上的元素 */
+@media (max-width: 768px) {
+
+  /* 只隐藏导航栏右侧的GitHub和语言切换按钮 */
+  .navbar__items--right .header-github-link,
+  .navbar__items--right .header-locale-link,
+  .navbar__items--right .navbar__item.dropdown,
+  .navbar__items .header-github-link,
+  .navbar__items .header-locale-link,
+  .navbar__items .navbar__item.dropdown {
+    display: none !important;
+  }
+
+  /* 确保左侧边栏中的元素仍然显示 */
+  .navbar-sidebar .navbar-sidebar__items .header-github-link,
+  .navbar-sidebar .navbar-sidebar__items .navbar__item.dropdown {
+    display: block !important;
+  }
+}
+
+/* 针对最小屏幕的强制隐藏规则 - 只影响导航栏 */
+@media (max-width: 480px) {
+
+  /* 强制隐藏导航栏右侧除了搜索框、主题切换和汉堡菜单之外的所有元素 */
+  .navbar__items--right>*:not(.DocSearch):not([class*="toggle"]):not([class*="sidebar"]) {
+    display: none !important;
+  }
+
+  .navbar__items--right .navbar__item:not(.DocSearch):not([class*="toggle"]):not([class*="sidebar"]) {
+    display: none !important;
+  }
+
+  /* 确保左侧边栏中的GitHub和语言切换仍然显示 */
+  .navbar-sidebar .navbar-sidebar__items .header-github-link,
+  .navbar-sidebar .navbar-sidebar__items .navbar__item.dropdown,
+  .navbar-sidebar .navbar-sidebar__items .navbar__item.dropdown .navbar__link {
+    display: block !important;
+  }
 }

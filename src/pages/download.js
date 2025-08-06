@@ -401,13 +401,19 @@ function DevelopmentBuildGrid() {
       setHasMore(buildsWithCommits.length === 10);
 
       if (buildsWithCommits.length === 0 && pageNum === 1) {
-        setError('未找到可用的构建。请访问 GitHub Actions 页面查看最新构建。');
+        setError(translate({
+          id: 'download.error.noBuildsFound',
+          message: '未找到可用的构建。请访问 GitHub Actions 页面查看最新构建。'
+        }));
       }
     } catch (err) {
       console.error('GitHub API请求失败:', err);
 
       if (pageNum === 1) {
-        setError('无法获取构建数据。请检查网络连接或访问 GitHub Actions 页面查看最新构建。');
+        setError(translate({
+          id: 'download.error.fetchBuildsFailed',
+          message: '无法获取构建数据。请检查网络连接或访问 GitHub Actions 页面查看最新构建。'
+        }));
       }
     } finally {
       if (pageNum === 1) {
@@ -551,13 +557,19 @@ function DevelopmentBuildList() {
       setHasMore(buildsWithCommits.length === 10);
 
       if (buildsWithCommits.length === 0 && pageNum === 1) {
-        setError('未找到可用的构建。请访问 GitHub Actions 页面查看最新构建。');
+        setError(translate({
+          id: 'download.error.noBuildsFound',
+          message: '未找到可用的构建。请访问 GitHub Actions 页面查看最新构建。'
+        }));
       }
     } catch (err) {
       console.error('GitHub API请求失败:', err);
 
       if (pageNum === 1) {
-        setError('无法获取构建数据。请检查网络连接或访问 GitHub Actions 页面查看最新构建。');
+        setError(translate({
+          id: 'download.error.fetchBuildsFailed',
+          message: '无法获取构建数据。请检查网络连接或访问 GitHub Actions 页面查看最新构建。'
+        }));
       }
     } finally {
       if (pageNum === 1) {
@@ -971,7 +983,10 @@ export default function DownloadPage() {
     fetch('https://api.github.com/repos/8aka-Team/Invero/releases')
       .then(response => {
         if (!response.ok) {
-          throw new Error(`GitHub API 请求失败: ${response.status}`);
+          throw new Error(translate({
+            id: 'download.error.githubApiFailed',
+            message: 'GitHub API 请求失败: {status}',
+          }, { status: response.status }));
         }
         return response.json();
       })

@@ -2,17 +2,14 @@
   版权所有 Lythrilla QQ:2557183026
  */
 
-/* 隐藏滚动条 */
+
 :global(html) {
   scrollbar-width: none;
-  /* Firefox */
   -ms-overflow-style: none;
-  /* IE and Edge */
 }
 
 :global(html)::-webkit-scrollbar {
   display: none;
-  /* Chrome, Safari, Opera */
 }
 
 :global(body) {
@@ -24,8 +21,10 @@
   display: none;
 }
 
+
 /*  满屏Hero区域  */
 .hero {
+  /* 使用完整视窗高度减去导航栏高度 */
   height: calc(100vh - var(--ifm-navbar-height));
   width: 100vw;
   position: relative;
@@ -499,23 +498,25 @@
   top: 0;
   left: 0;
   width: 100%;
+  /* 修复页脚滚动回弹问题：使用固定高度以确保内容在容器内滚动 */
   height: 100%;
+  /* 恢复滚动设置以防止页脚被遮盖 */
   overflow-y: auto;
   overflow-x: hidden;
   z-index: 1;
   background: var(--ifm-background-surface-color);
   padding-left: 420px;
-  /* 隐藏滚动条 */
-  scrollbar-width: none;
-  /* Firefox */
-  -ms-overflow-style: none;
-  /* IE and Edge */
+  /* 修复页脚滚动回弹问题：注释掉滚动条隐藏，让滚动行为正常 */
+  /* scrollbar-width: none; */
+  /* -ms-overflow-style: none; */
 }
 
+/* 修复页脚滚动回弹问题：注释掉滚动条隐藏 */
+/*
 .heroRight::-webkit-scrollbar {
   display: none;
-  /* Chrome, Safari, Opera */
 }
+*/
 
 .cardsContainer {
   padding: 3rem 4rem 3rem 3rem;
@@ -630,9 +631,15 @@
 .cardDescription {
   font-size: 0.9rem;
   line-height: 1.5;
-  color: var(--ifm-font-color-secondary);
+  color: var(--ifm-font-color-secondary) !important;
   margin: 0;
   opacity: 0.8;
+}
+
+/* text--truncate不覆盖颜色 */
+:global(.text--truncate).cardDescription,
+.cardDescription:global(.text--truncate) {
+  color: var(--ifm-font-color-secondary) !important;
 }
 
 .cardBorder {
