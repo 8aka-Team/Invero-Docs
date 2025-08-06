@@ -63,6 +63,7 @@ Please note that except for declaring the material of the root node which is nec
 | **HeadDatabase** | hdb     | HeadDatabase plugin support  |
 | **HMCCosmetics** | hmc     | HMCCosmetics plugin support  |
 | **itemsadder**   | ia      | ItemsAdder plugin support    |
+| **ItemTools**     | it      | ItemTools plugin support    |
 | **MagicCosmetics** | magic | MagicCosmetics plugin support |
 | **MagicGem**     | gem     | MagicGem plugin support      |
 | **MMOItems**     | mi      | MMOItems plugin support      |
