@@ -66,6 +66,7 @@ head: '<头颅标识符>'
 | **ecoItems**     | eco    | EcoItems 插件支持        |
 | **hmccosmetics** | hmc    | HMCCosmetics 插件支持    |
 | **itemsadder**   | ia     | ItemsAdder 插件支持      |
+| **ItemTools**    | it     | ItemTools 插件支持       |
 | **magiccosmetics** | magic | MagicCosmetics 插件支持 |
 | **magicgem**     | gem    | MagicGem 插件支持        |
 | **mmoitems**     | mi     | MMOItems 插件支持        |
@@ -120,6 +121,13 @@ hmc: custom_item
 ```yaml
 itemsadder: namespace:custom_item
 ia: namespace:custom_item
+```
+
+- ItemTools
+
+```yaml
+itemtools: custom_item
+it: custom_item
 ```
 
 - MagicCosmetics

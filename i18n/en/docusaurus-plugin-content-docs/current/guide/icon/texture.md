@@ -66,6 +66,7 @@ The application logic of variable identifiers is to parse the return value of th
 | **ecoItems**     | eco     | EcoItems plugin support      |
 | **hmccosmetics** | hmc     | HMCCosmetics plugin support  |
 | **itemsadder**   | ia      | ItemsAdder plugin support    |
+| **ItemTools**     | it      | ItemTools plugin support    |
 | **magiccosmetics** | magic | MagicCosmetics plugin support |
 | **magicgem**     | gem     | MagicGem plugin support      |
 | **mmoitems**     | mi      | MMOItems plugin support      |
@@ -120,6 +121,13 @@ hmc: custom_item
 ```yaml
 itemsadder: namespace:custom_item
 ia: namespace:custom_item
+```
+
+- ItemTools
+
+```yaml
+itemtools: custom_item
+it: custom_item
 ```
 
 - MagicCosmetics

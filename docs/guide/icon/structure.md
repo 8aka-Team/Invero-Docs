@@ -63,6 +63,7 @@ sidebar_position: 1
 | **HeadDatabase** | hdb    | HeadDatabase 插件支持    |
 | **HMCCosmetics** | hmc    | HMCCosmetics 插件支持    |
 | **itemsadder**   | ia     | ItemsAdder 插件支持      |
+| **ItemTools**     | it      | ItemTools 插件支持     |
 | **MagicCosmetics** | magic | MagicCosmetics 插件支持 |
 | **MagicGem**     | gem    | MagicGem 插件支持        |
 | **MMOItems**     | mi     | MMOItems 插件支持        |
