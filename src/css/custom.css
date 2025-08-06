@@ -1716,6 +1716,11 @@ div[class*="banner"] {
   background: none !important;
 }
 
+/* 隐藏面包屑导航中的斜杠 */
+.breadcrumbs__item:not(:last-child):after {
+  content: "" !important;
+}
+
 /* 确保卡片描述文字为灰色 */
 .text--truncate[class*="cardDescription"] {
   color: var(--ifm-font-color-secondary) !important;
