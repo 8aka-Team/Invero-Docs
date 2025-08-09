@@ -27,6 +27,18 @@ material: '35:3'
 因此你既可以简单的写 `red stained glass pane` 也可以完整拼出 `RED_STAINED_GLASS_PANE`
 :::
 
+### 模组物品
+
+> 使用模组提供的物品作为材质时
+
+- 统一采用“模组名_物品名”的写法（`modid_item`）
+
+示例：
+
+```yaml
+material: 模组名_mythril_ingot
+```
+
 ### 头颅材质
 
 图标结构为根节点，头颅材质可配置如下

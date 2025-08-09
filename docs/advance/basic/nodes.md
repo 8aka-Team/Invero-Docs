@@ -14,7 +14,8 @@ sidebar_position: 7
 
 ## 创建节点
 
-```yaml title=示例
+```yaml
+title=示例
 nodes:
   customNode:
     type: javascript
@@ -50,7 +51,8 @@ node customNode
 | **KETHER**     | Kether 语句 |
 | **JavaScript** | JS 脚本     |
 
-```yaml title="CONST 常量类型 简写示例"
+```yaml
+title="CONST 常量类型 简写示例"
 nodes:
   constPrice: 200
 ```
@@ -74,43 +76,3 @@ nodes:
       if check &invokeArgs[0] > &invokeArgs[1] then {
          &invokeArgs[0]
       } else {
-         &invokeArgs[1]
-      }
-
-items:
-  'A':
-    material: diamond
-    name: '{{ node max with array [ 15 88 ] }}'
-```
-
-上述示例经过运算，物品的名称变会显示 `88`
-
-## 全局节点
-
-:::tip
-
-此特性于 Invero 1.4.2 添加
-
-:::
-
-```yaml title=config.yml
-# 全局节点配置 | Global Nodes Configuration
-GlobalNodes:
-  # 是否启用全局节点功能 | Enable global nodes feature
-  enabled: true
-  # 全局节点工作路径 | Global nodes workspace paths
-  paths:
-    - 'plugins/Invero/global-nodes'
-······
-```
-
-在 `global-nodes` 文件夹（默认名）  
-将需要全局化的节点配置放入其中  
-即可在所有菜单中引用  
-使用方式与上方私有节点完全一致
-
-:::note
-
-Invero 提供 [gnode](/docs/start/command.md) 子命令来操作全局节点
-
-:::

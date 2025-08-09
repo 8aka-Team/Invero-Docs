@@ -27,6 +27,18 @@ In Invero's vanilla material syntax, we ignore case, underscores and automatical
 Therefore you can simply write `red stained glass pane` or fully spell out `RED_STAINED_GLASS_PANE`
 :::
 
+### Modded Items
+
+> When using items provided by mods as material
+
+- Use the unified format: `modid_item`
+
+Example:
+
+```yaml
+material: mymod_mythril_ingot
+```
+
 ### Skull Textures
 
 With icon structure as root node, skull textures can be configured as follows:
