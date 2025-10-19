@@ -34,64 +34,66 @@ sidebar_position: 1
 
 > 常规显示属性  
 
-| **节点**              | 别称                   | 接受值                 | 描述              |
-|---------------------|----------------------|---------------------|-----------------|
-| **material**        | texture, mat         | String / Object     | 图标材质（原版或特殊源）    |
-| **name**            | -                    | String              | 物品显示名称          |
-| **lore**            | lores                | String / List       | 物品显示描述          |
-| **amount**          | count, amt           | Int                 | 物品数量            |
-| **damage**          | durability, dur      | Int                 | 物品耐久            |
-| **customModelData** | model                | Int                 | 物品模型 ID （1.14+） |
-| **color**           | -                    | String              | 物品颜色            |
-| **glow**            | shiny                | Bool                | 物品是否发光          |
-| **enchantments**    | enchantment, enchant | Map                 | 物品附魔属性          |
-| **flags**           | flag                 | List                | 物品标签            |
-| **unbreakable**     | -                    | Bool                | 物品是否不可破坏        |
-| **nbt**             | -                    | Map                 | 物品 NBT 属性       |
-| **enhancedLore**    | -                    | Bool                | 是否启用增强 Lore 解析  |
-| **slot**            | slots                | (List) Int / String | 指定显示槽位          |
+| **节点**            | 别称                 | 接受值              | 描述                          |
+| ------------------- | -------------------- | ------------------- | ----------------------------- |
+| **material**        | texture, mat         | String / Object     | 图标材质（原版或特殊源）      |
+| **name**            | -                    | String              | 物品显示名称                  |
+| **lore**            | lores                | String / List       | 物品显示描述                  |
+| **amount**          | count, amt           | Int                 | 物品数量                      |
+| **damage**          | durability, dur      | Int                 | 物品耐久                      |
+| **customModelData** | model                | Int                 | 物品模型 ID （1.14+）         |
+| **color**           | -                    | String              | 物品颜色                      |
+| **glow**            | shiny                | Bool                | 物品是否发光                  |
+| **enchantments**    | enchantment, enchant | Map                 | 物品附魔属性                  |
+| **flags**           | flag                 | List                | 物品标签                      |
+| **unbreakable**     | -                    | Bool                | 物品是否不可破坏              |
+| **nbt**             | -                    | Map                 | 物品 NBT 属性                 |
+| **enhancedLore**    | -                    | Bool                | 是否启用增强 Lore 解析        |
+| **slot**            | slots                | (List) Int / String | 指定显示槽位                  |
+| **hide-tooltip**    | hide_tooltip         | Bool                | 是否隐藏物品提示框（1.20.5+） |
+| **item-model**      | item_model           | String              | 引用物品模型 (1.21.2+)        |
 
 > 特殊材质源属性  
 > 以下节点接受值均为 String 字符串类型
 
-| **节点**           | 别称     | 描述                 |
-|------------------|--------|-------------------------|
-| **head**         | skull  | 自定义头颅材质           |
-| **AzureFlow**    | af     | AzureFlow 插件支持       |
-| **craftengine**  | ce     | CraftEngine 插件支持     |
-| **EcoItems**     | eco    | EcoItems 插件支持        |
-| **HeadDatabase** | hdb    | HeadDatabase 插件支持    |
-| **HMCCosmetics** | hmc    | HMCCosmetics 插件支持    |
-| **itemsadder**   | ia     | ItemsAdder 插件支持      |
-| **ItemTools**     | it      | ItemTools 插件支持     |
-| **MagicCosmetics** | magic | MagicCosmetics 插件支持 |
-| **MagicGem**     | gem    | MagicGem 插件支持        |
-| **MMOItems**     | mi     | MMOItems 插件支持        |
-| **NeigeItems**   | ni     | NeigeItems 插件支持      |
-| **Nexo**         | -      | Nexo 插件支持            |
-| **oraxen**       | -      | Oraxen 插件支持          |
-| **ratziel**      | -      | Ratziel 插件支持         |
-| **SX-Item**      | si     | SX-Item 插件支持         |
-| **Slimefun**     | sf     | Slimefun 插件支持        |
-| **zaphkiel**     | zap    | Zaphkiel 插件支持        |
-| **serialized**   | base64 | Serialized base64 物品   |
-| **kether**       | -      | Kether 脚本物品          |
+| **节点**           | 别称   | 描述                    |
+| ------------------ | ------ | ----------------------- |
+| **head**           | skull  | 自定义头颅材质          |
+| **AzureFlow**      | af     | AzureFlow 插件支持      |
+| **craftengine**    | ce     | CraftEngine 插件支持    |
+| **EcoItems**       | eco    | EcoItems 插件支持       |
+| **HeadDatabase**   | hdb    | HeadDatabase 插件支持   |
+| **HMCCosmetics**   | hmc    | HMCCosmetics 插件支持   |
+| **itemsadder**     | ia     | ItemsAdder 插件支持     |
+| **ItemTools**      | it     | ItemTools 插件支持      |
+| **MagicCosmetics** | magic  | MagicCosmetics 插件支持 |
+| **MagicGem**       | gem    | MagicGem 插件支持       |
+| **MMOItems**       | mi     | MMOItems 插件支持       |
+| **NeigeItems**     | ni     | NeigeItems 插件支持     |
+| **Nexo**           | -      | Nexo 插件支持           |
+| **oraxen**         | -      | Oraxen 插件支持         |
+| **ratziel**        | -      | Ratziel 插件支持        |
+| **SX-Item**        | si     | SX-Item 插件支持        |
+| **Slimefun**       | sf     | Slimefun 插件支持       |
+| **zaphkiel**       | zap    | Zaphkiel 插件支持       |
+| **serialized**     | base64 | Serialized base64 物品  |
+| **kether**         | -      | Kether 脚本物品         |
 
 ### 交互处理
 
 该节点接受多种类型配置值，后续章节会详细讲解
 
-| **节点**     | 别称                     | 描述   |
-|------------|------------------------|------|
+| **节点**   | 别称                   | 描述     |
+| ---------- | ---------------------- | -------- |
 | **action** | actions, handler,click | 交互动作 |
 
 ### 图标属性
 
-| **节点**                | 别称                | 接受值    | 描述              |
-|-----------------------|-------------------|--------|-----------------|
-| **id**                | key               | String | 覆写图标 ID         |
-| **update**            | -                 | Long   | 图标自动翻译变量周期      |
-| **relocate**          | -                 | Long   | 图标自动筛选定位子图标周期   |
-| **frames**            | -                 | List   | 动态物品帧           |
-| **frames-properties** | frames-prop, prop | Object | 动态物品帧默认设置       |
-| **sub**               | -                 | List   | 条件子图标           |
+| **节点**              | 别称              | 接受值 | 描述                       |
+| --------------------- | ----------------- | ------ | -------------------------- |
+| **id**                | key               | String | 覆写图标 ID                |
+| **update**            | -                 | Long   | 图标自动翻译变量周期       |
+| **relocate**          | -                 | Long   | 图标自动筛选定位子图标周期 |
+| **frames**            | -                 | List   | 动态物品帧                 |
+| **frames-properties** | frames-prop, prop | Object | 动态物品帧默认设置         |
+| **sub**               | -                 | List   | 条件子图标                 |
